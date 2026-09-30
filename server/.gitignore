@@ -1,0 +1,14 @@
+# Server Environment Files
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Dynamic Uploads & WhatsApp Session Data
+uploads/
+whatsapp_session_data/
+
+# Logs
+*.log
