@@ -1,0 +1,206 @@
+/* Office Staff Management Page Styles */
+
+.staff-container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.staff-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.staff-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #171717;
+  margin: 0;
+}
+
+.create-staff-btn {
+  background: #1E3A8A;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+  transition: all 0.2s ease;
+}
+
+.create-staff-btn:hover {
+  background: #152A66;
+  transform: translateY(-1px);
+}
+
+/* Total Staff Stat Summary Card */
+.staff-summary-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  padding: 1.25rem 1.5rem;
+  max-width: 280px;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border-left: 4px solid #D4AF37;
+}
+
+.staff-summary-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background: #F8F5EC;
+  color: #1E3A8A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.staff-summary-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.staff-summary-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.staff-summary-count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: #171717;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+/* Staff Table Design */
+.staff-table-card {
+  background: #FFFFFF;
+  border-radius: 6px;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: inherit;
+}
+
+.staff-table thead tr {
+  background: #1E3A8A !important;
+  color: #FFFFFF !important;
+}
+
+.staff-table th {
+  padding: 0.85rem 1rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  letter-spacing: 0.02em;
+}
+
+.staff-table th:last-child {
+  border-right: none;
+  text-align: center;
+}
+
+.staff-table tbody tr {
+  border-bottom: 1px solid #E5E5E5;
+  transition: background 0.15s ease;
+}
+
+.staff-table tbody tr:hover {
+  background: #F8F5EC;
+}
+
+.staff-table td {
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  color: #171717;
+  border-right: 1px solid #E5E5E5;
+  vertical-align: middle;
+}
+
+.staff-table td:last-child {
+  border-right: none;
+  text-align: center;
+}
+
+.s-name-cell {
+  font-weight: 700;
+  color: #111111;
+}
+
+.s-resp-cell {
+  color: #444444;
+  line-height: 1.4;
+  max-width: 320px;
+}
+
+.s-textarea-field {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #171717;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 90px;
+  box-sizing: border-box;
+}
+
+.s-textarea-field:focus {
+  outline: none;
+  border-color: #1E3A8A;
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.15);
+}
+
+@media (max-width: 768px) {
+  .staff-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .staff-table th,
+  .staff-table td {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.82rem;
+  }
+}
+
+
+/* Global Table Responsive Wrapper Fix */
+.att-table-card, .res-table-card, .fees-table-card, .ann-table-card, .table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Modal Responsive Mobile Viewport Fix */
+@media (max-width: 768px) {
+  .action-modal-card {
+    max-height: 88vh;
+    overflow-y: auto;
+    width: 95% !important;
+    padding: 1.25rem 1rem !important;
+  }
+}

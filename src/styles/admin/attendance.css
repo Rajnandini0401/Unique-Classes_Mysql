@@ -1,0 +1,478 @@
+/* Attendance Management Page Styles */
+
+.attendance-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.attendance-top-bar {
+  margin-bottom: 1.25rem;
+}
+
+.attendance-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #171717;
+  margin: 0 0 4px 0;
+}
+
+.attendance-subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  margin: 0;
+}
+
+/* Tabs Navigation Bar */
+.attendance-tabs-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #E2DBD0;
+  padding-bottom: 1px;
+}
+
+.att-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #666666;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s ease;
+}
+
+.att-tab-btn:hover {
+  color: #1E3A8A;
+}
+
+.att-tab-btn.active {
+  color: #1E3A8A;
+  font-weight: 800;
+  border-bottom-color: #D4AF37;
+  background: #F8F5EC;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* Filter Cards */
+.att-filter-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.att-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.att-field-group label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #1E3A8A;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.att-select-input {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 150px;
+  color: #171717;
+  background: #FFFFFF;
+  font-family: inherit;
+}
+
+.att-select-input:focus {
+  outline: none;
+  border-color: #1E3A8A;
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.15);
+}
+
+.att-date-input {
+  padding: 0.52rem 0.85rem;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #171717;
+  font-family: inherit;
+}
+
+/* 4 Summary Stat Cards for History */
+.att-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.att-stat-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  padding: 1.1rem 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-left: 4px solid #1E3A8A;
+}
+
+.att-stat-card.gold { border-left-color: #D4AF37; }
+.att-stat-card.green { border-left-color: #10B981; }
+.att-stat-card.red { border-left-color: #EF4444; }
+
+.att-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #F8F5EC;
+  color: #1E3A8A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.att-stat-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.att-stat-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #666666;
+  text-transform: uppercase;
+}
+
+.att-stat-count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #171717;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+/* Student Attendance Table Card */
+.att-table-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.att-table-toolbar {
+  padding: 1rem 1.5rem;
+  background: #F8F5EC;
+  border-bottom: 1px solid #E2DBD0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.att-search-input {
+  padding: 0.5rem 0.85rem;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  min-width: 240px;
+  font-family: inherit;
+}
+
+/* Standard Daily Table */
+.att-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: inherit;
+}
+
+.att-table thead tr {
+  background: #1E3A8A !important;
+  color: #FFFFFF !important;
+}
+
+.att-table th {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  letter-spacing: 0.02em;
+}
+
+.att-table th:last-child {
+  border-right: none;
+  text-align: center;
+}
+
+.att-table tbody tr {
+  border-bottom: 1px solid #E5E5E5;
+  transition: background 0.15s ease;
+}
+
+.att-table tbody tr:hover {
+  background: #F8F5EC;
+}
+
+.att-table td {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.9rem;
+  color: #171717;
+  border-right: 1px solid #E5E5E5;
+  vertical-align: middle;
+}
+
+.att-table td:last-child {
+  border-right: none;
+  text-align: center;
+}
+
+.att-roll-cell {
+  font-weight: 800;
+  color: #1E3A8A;
+}
+
+.att-name-cell {
+  font-weight: 700;
+  color: #111111;
+}
+
+.att-name-link {
+  font-weight: 700;
+  color: #1E3A8A;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: rgba(30, 58, 138, 0.3);
+}
+
+.att-name-link:hover {
+  color: #D4AF37;
+}
+
+/* Status Badges */
+.badge-present {
+  display: inline-block;
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #10B981;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.badge-absent {
+  display: inline-block;
+  background: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #EF4444;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+/* Radio Group Marking Controls */
+.att-radio-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.att-radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.att-radio-label.present-radio {
+  color: #065F46;
+}
+
+.att-radio-label.absent-radio {
+  color: #991B1B;
+}
+
+.att-radio-label input {
+  accent-color: #1E3A8A;
+  width: 16px;
+  height: 16px;
+}
+
+/* Monthly Matrix Attendance History Table */
+.matrix-scroll-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.att-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.att-matrix-table thead tr {
+  background: #1E3A8A !important;
+  color: #FFFFFF !important;
+}
+
+.att-matrix-table th {
+  padding: 0.65rem 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+}
+
+.att-matrix-table th.sticky-col {
+  position: sticky;
+  left: 0;
+  background: #1E3A8A;
+  z-index: 2;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.att-matrix-table td {
+  padding: 0.5rem 0.4rem;
+  font-size: 0.82rem;
+  border-right: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+  text-align: center;
+}
+
+.att-matrix-table td.sticky-col {
+  position: sticky;
+  left: 0;
+  background: #FFFFFF;
+  z-index: 1;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.att-matrix-table tbody tr:hover td {
+  background: #F8F5EC;
+}
+
+.att-matrix-table tbody tr:hover td.sticky-col {
+  background: #F8F5EC;
+}
+
+.tag-p-subtle {
+  display: inline-block;
+  color: #065F46;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  width: 22px;
+  height: 22px;
+  line-height: 20px;
+  border-radius: 3px;
+  font-weight: 800;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.tag-a-subtle {
+  display: inline-block;
+  color: #991B1B;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  width: 22px;
+  height: 22px;
+  line-height: 20px;
+  border-radius: 3px;
+  font-weight: 800;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.save-att-footer {
+  padding: 1.25rem;
+  background: #F8F5EC;
+  border-top: 1px solid #E2DBD0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.save-att-btn {
+  background: #1E3A8A;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.65rem 2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
+  transition: all 0.2s ease;
+}
+
+.save-att-btn:hover {
+  background: #152A66;
+  transform: translateY(-1px);
+}
+
+.save-success-msg {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #065F46;
+  background: #ECFDF5;
+  border: 1px solid #10B981;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .att-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .att-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .att-filter-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Modal Responsive Mobile Viewport Fix */
+@media (max-width: 768px) {
+  .action-modal-card {
+    max-height: 88vh;
+    overflow-y: auto;
+    width: 95% !important;
+    padding: 1.25rem 1rem !important;
+  }
+}

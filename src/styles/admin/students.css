@@ -1,0 +1,297 @@
+﻿/* All Students Page & Table Styling (Exact Match for Screenshot) */
+
+.students-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.students-header-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.students-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #171717;
+}
+
+.students-subtitle {
+  font-size: 0.92rem;
+  color: #656565;
+}
+
+/* Filter Bar Box */
+.filter-bar-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-input-field {
+  padding: 0.5rem 0.85rem;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+  font-size: 0.92rem;
+  min-width: 220px;
+  color: #171717;
+  font-family: inherit;
+}
+
+.search-input-field:focus {
+  outline: none;
+  border-color: #1E3A8A;
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.15);
+}
+
+.class-select-dropdown {
+  padding: 0.5rem 0.85rem;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+  font-size: 0.92rem;
+  min-width: 130px;
+  color: #171717;
+  background: #FFFFFF;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.class-select-dropdown:focus {
+  outline: none;
+  border-color: #1E3A8A;
+}
+
+.filter-btn-submit {
+  background: #F0F0F0;
+  color: #171717;
+  border: 1px solid #B0B0B0;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn-submit:hover {
+  background: #1E3A8A;
+  color: #FFFFFF;
+  border-color: #1E3A8A;
+}
+
+.clear-btn-submit {
+  background: transparent;
+  color: #666666;
+  border: 1px solid #D1C8B8;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-btn-submit:hover {
+  background: #EF4444;
+  color: #FFFFFF;
+  border-color: #EF4444;
+}
+
+/* Table Container & Exact Header Styling */
+.table-card-wrapper {
+  background: #FFFFFF;
+  border-radius: 6px;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: inherit;
+}
+
+.students-table thead tr {
+  background: #1E3A8A !important;
+  color: #FFFFFF !important;
+}
+
+.students-table th {
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.02em;
+}
+
+.students-table th:last-child {
+  border-right: none;
+}
+
+.students-table tbody tr {
+  border-bottom: 1px solid #E5E5E5;
+  transition: background 0.15s ease;
+}
+
+.students-table tbody tr:hover {
+  background: #F8F5EC;
+}
+
+.students-table td {
+  padding: 0.85rem 1rem;
+  font-size: 0.92rem;
+  color: #171717;
+  border-right: 1px solid #E5E5E5;
+  vertical-align: middle;
+}
+
+.students-table td:last-child {
+  border-right: none;
+}
+
+.cell-roll {
+  font-weight: 700;
+  color: #111111;
+}
+
+.cell-name {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.cell-balance-red {
+  color: #EF4444 !important;
+  font-weight: 800 !important;
+}
+
+.cell-balance-zero {
+  color: #10B981 !important;
+  font-weight: 800 !important;
+}
+
+/* Action Buttons (Exact Color Match) */
+.action-buttons-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.btn-act-view {
+  background: #3B82F6;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-act-view:hover {
+  background: #2563EB;
+}
+
+.btn-act-edit {
+  background: #F59E0B;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-act-edit:hover {
+  background: #D97706;
+}
+
+.btn-act-delete {
+  background: #EF4444;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-act-delete:hover {
+  background: #DC2626;
+}
+
+/* Empty State Box */
+.empty-state-box {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #666666;
+}
+
+.empty-state-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #555555;
+  margin-top: 0.5rem;
+}
+
+/* Action Modal Overlays */
+.action-modal-card {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 2px solid #1E3A8A;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .filter-bar-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-input-field,
+  .class-select-dropdown {
+    width: 100%;
+  }
+  .students-table th,
+  .students-table td {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.82rem;
+  }
+}
+
+
+/* Global Table Responsive Wrapper Fix */
+.att-table-card, .res-table-card, .fees-table-card, .ann-table-card, .table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Modal Responsive Mobile Viewport Fix */
+@media (max-width: 768px) {
+  .action-modal-card {
+    max-height: 88vh;
+    overflow-y: auto;
+    width: 95% !important;
+    padding: 1.25rem 1rem !important;
+  }
+}

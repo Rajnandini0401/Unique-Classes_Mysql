@@ -1,0 +1,596 @@
+/* Reference-Matched Compact Admission Form Styling & Screen Layout */
+
+.admission-form-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 2px solid #C9A227;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  color: #111111;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Header Section: 3-Column Layout (Logo LEFT, Title CENTER, Date/Serial RIGHT) */
+.template-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.template-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.template-logo {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+}
+
+.template-header-center {
+  text-align: center;
+  flex: 2;
+}
+
+.template-brand-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #233F8F;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+}
+
+.template-brand-tagline {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #333333;
+  margin-top: 3px;
+}
+
+.template-header-right {
+  text-align: right;
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* Blue Divider Line */
+.template-blue-divider {
+  height: 2px;
+  background-color: #233F8F;
+  margin-bottom: 0.6rem;
+}
+
+/* Full Width Blue Heading Bar */
+.template-doc-heading {
+  background-color: #233F8F;
+  color: #FFFFFF;
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* Section Box with Border & Badge */
+.template-section-box {
+  border: 1px solid #C9A227;
+  border-radius: 6px;
+  padding: 0.85rem 1rem 0.75rem 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  background: #FFFFFF;
+}
+
+.template-section-badge {
+  background: #233F8F;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 2px 10px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-top: -1.4rem;
+  margin-left: 0.25rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+/* Input Fields & Labels */
+.t-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 3px;
+  display: block;
+}
+
+.t-input,
+.t-select {
+  border: 1px solid #B0B0B0;
+  border-radius: 4px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.88rem;
+  color: #111111;
+  background: #FFFFFF;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.t-input:focus,
+.t-select:focus {
+  border-color: #233F8F;
+  box-shadow: 0 0 0 2px rgba(35, 63, 143, 0.15);
+}
+
+.t-input-sm {
+  border: 1px solid #B0B0B0;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.82rem;
+  color: #111111;
+}
+
+/* Form Grid Layouts */
+.t-grid-full {
+  display: flex;
+  flex-direction: column;
+}
+
+.t-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.t-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+.t-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.t-fee-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.t-fee-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 3px;
+}
+
+/* Signatures Row */
+.t-signatures-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.t-sig-box {
+  flex: 1;
+  text-align: center;
+}
+
+.t-sig-line {
+  border-bottom: 1.5px solid #111111;
+  margin-bottom: 0.4rem;
+}
+
+.t-sig-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #333333;
+}
+
+.t-declaration-text {
+  font-size: 0.85rem;
+  color: #333333;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Footer Section Inside Form */
+.t-footer-block {
+  margin-top: 0.85rem;
+  padding-top: 0.6rem;
+  border-top: 1.5px dashed #233F8F;
+  text-align: center;
+}
+
+.t-footer-address {
+  font-size: 0.8rem;
+  color: #333333;
+  line-height: 1.4;
+}
+
+/* Single Centered Action Button Group */
+.admission-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.t-submit-btn {
+  background-color: #233F8F;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.6rem 2rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  margin: 0;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.t-submit-btn:hover {
+  background-color: #1A2F6C;
+}
+
+/* Bottom Actions Fallback Container */
+.t-bottom-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 1.25rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.t-print-btn {
+  background: #C9A227;
+  color: #080808;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.t-print-btn:hover {
+  background: #B38F1E;
+}
+
+.t-back-link {
+  color: #233F8F;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ==================================================
+   A4 PORTRAIT SINGLE-PAGE PRINT STYLES
+   Fits 100% on 1 Single A4 Page (210mm x 297mm)
+   ================================================== */
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm;
+}
+
+@media print {
+  /* Page & Viewport Container Reset */
+  html, body {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #FFFFFF !important;
+    font-size: 8.5pt !important;
+    color: #000000 !important;
+    overflow: visible !important;
+  }
+
+  /* Force Admission Form Content to be Visible */
+  .admission-form-wrapper,
+  .admission-form-wrapper * {
+    visibility: visible !important;
+  }
+
+  /* Hide All Screen-Only UI Elements across Admin & Staff layouts */
+  .no-print,
+  .admin-sidebar,
+  .admin-header,
+  .teacher-sidebar,
+  .teacher-header,
+  .teacher-sidebar-brand,
+  .teacher-sidebar-backdrop,
+  .sidebar-backdrop,
+  .t-bottom-actions,
+  .t-submit-btn,
+  .modal-overlay,
+  header,
+  aside,
+  nav {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Reset ALL Layout Containers to 100% full width, zero margin, zero padding */
+  .admin-layout,
+  .admin-main-wrapper,
+  .admin-content-body,
+  .teacher-layout,
+  .teacher-main-viewport,
+  .teacher-content-scrollable,
+  .teacher-content-inner {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: #FFFFFF !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    flex: none !important;
+    box-shadow: none !important;
+    position: static !important;
+    visibility: visible !important;
+  }
+
+  /* Form Wrapper Sealed to Single A4 Page Height */
+  .admission-form-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    border: 1.5pt solid #233F8F !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 3mm 4mm !important;
+    margin: 0 auto !important;
+    background: #FFFFFF !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  /* Header 3-Column Horizontal Row */
+  .template-header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-bottom: 1.5mm !important;
+    margin-bottom: 1.5mm !important;
+  }
+
+  .template-header-left {
+    flex: 1 !important;
+  }
+
+  .template-logo {
+    width: 45px !important;
+    height: 45px !important;
+    object-fit: cover !important;
+  }
+
+  .template-header-center {
+    flex: 2 !important;
+    text-align: center !important;
+  }
+
+  .template-brand-title {
+    font-size: 16pt !important;
+    font-weight: 900 !important;
+    color: #233F8F !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.02em !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .template-brand-tagline {
+    font-size: 8pt !important;
+    font-weight: 700 !important;
+    color: #333333 !important;
+    margin-top: 1px !important;
+  }
+
+  .template-header-right {
+    flex: 1 !important;
+    text-align: right !important;
+    font-size: 8.5pt !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Blue Divider Line */
+  .template-blue-divider {
+    height: 1.5pt !important;
+    background-color: #233F8F !important;
+    margin-bottom: 2mm !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Heading Bar */
+  .template-doc-heading {
+    font-size: 11pt !important;
+    font-weight: 900 !important;
+    padding: 2mm 0 !important;
+    margin-bottom: 2.5mm !important;
+    background-color: #233F8F !important;
+    color: #FFFFFF !important;
+    border-radius: 3px !important;
+    letter-spacing: 0.06em !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Section Box & Badges */
+  .template-section-box {
+    border: 1pt solid #C9A227 !important;
+    padding: 2.5mm 3.5mm !important;
+    margin-bottom: 2.5mm !important;
+    border-radius: 3px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .template-section-badge {
+    font-size: 8pt !important;
+    font-weight: 800 !important;
+    padding: 1.5px 8px !important;
+    margin-top: -4.5mm !important;
+    margin-bottom: 1.5mm !important;
+    background-color: #233F8F !important;
+    color: #FFFFFF !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Labels & Inputs in Print */
+  .t-label, .t-fee-label {
+    font-size: 8pt !important;
+    font-weight: 700 !important;
+    margin-bottom: 1px !important;
+    color: #111111 !important;
+  }
+
+  .t-input, .t-select {
+    border: 0.5pt solid #555555 !important;
+    padding: 2px 4px !important;
+    font-size: 8.5pt !important;
+    height: 22px !important;
+    line-height: 22px !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border-radius: 2px !important;
+  }
+
+  /* Student Photo Print Size & Proportions */
+  #student-photo-input + div img,
+  .template-section-box img {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: cover !important;
+    border: 1.5pt solid #233F8F !important;
+    border-radius: 4px !important;
+  }
+
+  /* Grid Layouts for Print */
+  .t-grid-2 {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2mm !important;
+  }
+
+  .t-grid-3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2mm !important;
+  }
+
+  .t-grid-4 {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 2mm !important;
+  }
+
+  /* Declaration & Signatures */
+  .t-declaration-text {
+    font-size: 7.5pt !important;
+  }
+
+  .t-signatures-row {
+    margin-top: 3.5mm !important;
+    padding-top: 0 !important;
+    gap: 3mm !important;
+  }
+
+  .t-sig-line {
+    border-bottom: 1pt solid #000000 !important;
+    margin-bottom: 2px !important;
+  }
+
+  .t-sig-text {
+    font-size: 7.5pt !important;
+    font-weight: 700 !important;
+  }
+
+  /* Footer Inside Form */
+  .t-footer-block {
+    margin-top: 2mm !important;
+    padding-top: 1.5mm !important;
+    border-top: 1pt dashed #233F8F !important;
+  }
+
+  .t-footer-address {
+    font-size: 7.5pt !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* Screen Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .t-grid-2,
+  .t-grid-3,
+  .t-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .template-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .template-header-left,
+  .template-header-center,
+  .template-header-right {
+    text-align: center;
+    flex: auto;
+  }
+}

@@ -1,0 +1,435 @@
+/* Fees Management Page Styles */
+
+.fees-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.fees-top-bar {
+  margin-bottom: 1.5rem;
+}
+
+.fees-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #171717;
+  margin: 0 0 4px 0;
+}
+
+.fees-subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  margin: 0;
+}
+
+/* 3 Stat Summary Cards */
+.fees-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.fees-stat-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.fees-stat-card.total { border-left: 4px solid #1E3A8A; }
+.fees-stat-card.collected { border-left: 4px solid #10B981; }
+.fees-stat-card.pending { border-left: 4px solid #EF4444; }
+
+.fees-stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fees-stat-icon.total { background: #F8F5EC; color: #1E3A8A; }
+.fees-stat-icon.collected { background: #ECFDF5; color: #10B981; }
+.fees-stat-icon.pending { background: #FEF2F2; color: #EF4444; }
+
+.fees-stat-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.fees-stat-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.fees-stat-count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #171717;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+/* Filter Controls Bar */
+.fees-filter-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.f-search-input {
+  padding: 0.52rem 0.85rem;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  min-width: 250px;
+  color: #171717;
+  font-family: inherit;
+}
+
+.f-search-input:focus {
+  outline: none;
+  border-color: #1E3A8A;
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.15);
+}
+
+.f-select-filter {
+  padding: 0.52rem 0.85rem;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  min-width: 150px;
+  color: #171717;
+  background: #FFFFFF;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.f-select-filter:focus {
+  outline: none;
+  border-color: #1E3A8A;
+}
+
+/* Student Fee Table Card */
+.fees-table-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.fees-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: inherit;
+}
+
+.fees-table thead tr {
+  background: #1E3A8A !important;
+  color: #FFFFFF !important;
+}
+
+.fees-table th {
+  padding: 0.85rem 1.15rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  letter-spacing: 0.02em;
+}
+
+.fees-table th:last-child {
+  border-right: none;
+  text-align: center;
+}
+
+.fees-table tbody tr {
+  border-bottom: 1px solid #E5E5E5;
+  transition: background 0.15s ease;
+}
+
+.fees-table tbody tr:hover {
+  background: #F8F5EC;
+}
+
+.fees-table td {
+  padding: 0.85rem 1.15rem;
+  font-size: 0.9rem;
+  color: #171717;
+  border-right: 1px solid #E5E5E5;
+  vertical-align: middle;
+}
+
+.fees-table td:last-child {
+  border-right: none;
+  text-align: center;
+}
+
+.f-id-cell {
+  font-weight: 800;
+  color: #1E3A8A;
+}
+
+.f-name-cell {
+  font-weight: 700;
+  color: #111111;
+}
+
+/* Fee Status Badges */
+.badge-paid {
+  display: inline-block;
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #10B981;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.badge-partially-paid {
+  display: inline-block;
+  background: #FFFBEB;
+  color: #92400E;
+  border: 1px solid #F59E0B;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.badge-pending {
+  display: inline-block;
+  background: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #EF4444;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.btn-add-payment {
+  background: #10B981;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.4rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-add-payment:hover {
+  background: #059669;
+}
+
+/* Validation Alert Box */
+.validation-alert-box {
+  background: #FEF2F2;
+  border: 1px solid #EF4444;
+  color: #991B1B;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Printable Receipt Box */
+.receipt-wrapper {
+  background: #FFFFFF;
+  border: 2px double #D4AF37;
+  border-radius: 8px;
+  padding: 1.5rem;
+  font-family: inherit;
+  color: #171717;
+  position: relative;
+}
+
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #1E3A8A;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.receipt-brand-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #1E3A8A;
+  margin: 0;
+}
+
+.receipt-brand-sub {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 2px;
+}
+
+.receipt-number-badge {
+  background: #F8F5EC;
+  border: 1px solid #D4AF37;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-weight: 800;
+  color: #1E3A8A;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .fees-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .fees-filter-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .fees-table th,
+  .fees-table td {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.82rem;
+  }
+}
+
+
+/* Global Table Responsive Wrapper Fix */
+.att-table-card, .res-table-card, .fees-table-card, .ann-table-card, .table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Modal Responsive Mobile Viewport Fix */
+@media (max-width: 768px) {
+  .action-modal-card {
+    max-height: 88vh;
+    overflow-y: auto;
+    width: 95% !important;
+    padding: 1.25rem 1rem !important;
+  }
+}
+
+
+/* Critical Centered Portal Overlay for Fees Modals */
+.fees-modal-overlay {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.fees-modal {
+  position: relative;
+  width: min(800px, 92vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 100000;
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Print Styles for Fee Receipt Isolation */
+@media print {
+  @page {
+    size: auto;
+    margin: 10mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide root app content when printing */
+  #root,
+  .no-print,
+  button,
+  header,
+  aside,
+  nav,
+  .teacher-header,
+  .teacher-sidebar {
+    display: none !important;
+  }
+
+  /* Force display of receipt overlay & wrapper */
+  .fees-modal-overlay {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .fees-modal {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  .receipt-wrapper {
+    position: static !important;
+    border: 2px solid #1E3A8A !important;
+    box-shadow: none !important;
+    padding: 1.5rem !important;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    background: #ffffff !important;
+    page-break-inside: avoid !important;
+  }
+}
+

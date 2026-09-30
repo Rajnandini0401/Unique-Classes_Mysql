@@ -1,0 +1,44 @@
+:root {
+  /* Official Brand Palette - Unique Classes */
+  --bg-primary-black: #080808;
+  --bg-secondary-black: #151515;
+  --bg-dark-card: #1A1A1A;
+
+  --bg-warm-ivory: #F8F5EC;
+  --bg-soft-cream: #EFE9DA;
+  --bg-pure-white: #FFFFFF;
+
+  /* Metallic & Warm Gold Accents */
+  --color-metallic-gold: #D4AF37;
+  --color-bright-gold: #F4C542;
+  --color-champagne-gold: #E6C76A;
+  --color-gold-glow: rgba(212, 175, 55, 0.3);
+  
+  --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+  --gold-btn-gradient: linear-gradient(135deg, #D4AF37 0%, #F4C542 50%, #B8860B 100%);
+
+  /* Text Colors */
+  --text-dark: #171717;
+  --text-muted: #555555;
+  --text-light: #F8F5EC;
+  --text-light-muted: #A3A3A3;
+
+  /* Borders */
+  --border-light: #E2DBD0;
+  --border-dark: rgba(212, 175, 55, 0.22);
+  --border-gold: rgba(212, 175, 55, 0.5);
+
+  /* Glassmorphism */
+  --glass-bg-black: rgba(8, 8, 8, 0.92);
+  --glass-border-gold: rgba(212, 175, 55, 0.25);
+
+  /* Typography */
+  --font-family-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+}

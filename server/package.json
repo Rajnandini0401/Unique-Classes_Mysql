@@ -1,0 +1,21 @@
+{
+  "name": "tuition-management-backend",
+  "version": "1.0.0",
+  "description": "Express MySQL Backend for Tuition Management System",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.11.0",
+    "playwright": "^1.63.0"
+  }
+}

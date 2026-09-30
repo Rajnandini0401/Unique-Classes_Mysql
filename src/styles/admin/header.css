@@ -1,0 +1,170 @@
+/* Header Styles */
+.admin-header {
+  height: 70px;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2DBD0;
+  padding: 0 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 90;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sidebar-toggle-btn {
+  background: #F8F5EC;
+  border: 1px solid #E2DBD0;
+  color: #171717;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-toggle-btn:hover {
+  background: #D4AF37;
+  color: #080808;
+  border-color: #D4AF37;
+}
+
+/* Show Hamburger toggle button on desktop too if desired, or hide on large screens */
+@media (min-width: 993px) {
+  .sidebar-toggle-btn {
+    display: none;
+  }
+}
+
+.header-page-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #171717;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.notification-btn {
+  position: relative;
+  background: #F8F5EC;
+  border: 1px solid #E2DBD0;
+  color: #171717;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.notification-btn:hover {
+  border-color: #D4AF37;
+  color: #D4AF37;
+}
+
+.notification-badge-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 8px;
+  height: 8px;
+  background: #EF4444;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  background: #F8F5EC;
+  border: 1px solid #E2DBD0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.profile-wrapper:hover {
+  border-color: #D4AF37;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+}
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D4AF37, #B8860B);
+  color: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+
+.profile-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #171717;
+}
+
+.dropdown-menu-stub {
+  position: absolute;
+  top: 115%;
+  right: 0;
+  width: 180px;
+  background: #FFFFFF;
+  border: 1px solid #E2DBD0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.88rem;
+  color: #171717;
+  font-weight: 600;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #F8F5EC;
+  color: #D4AF37;
+}
+
+@media (max-width: 600px) {
+  .admin-header {
+    padding: 0 1rem;
+  }
+  .header-page-title {
+    font-size: 1.15rem;
+  }
+  .profile-name {
+    display: none;
+  }
+}

@@ -1,0 +1,304 @@
+/* Class Schedule & Batches Timetable Styles */
+
+.batches-container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.batches-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.batches-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #171717;
+  margin: 0 0 4px 0;
+}
+
+.batches-subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  margin: 0;
+}
+
+.add-schedule-btn {
+  background: #1E3A8A;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.2);
+  transition: all 0.2s ease;
+}
+
+.add-schedule-btn:hover {
+  background: #152A66;
+  transform: translateY(-1px);
+}
+
+/* Total Classes Stat Summary Card */
+.batches-summary-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  padding: 1.25rem 1.5rem;
+  max-width: 280px;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border-left: 4px solid #D4AF37;
+}
+
+/* Class Pill Tabs Navigation Bar */
+.batches-class-tabs-card {
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.batches-tabs-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #1E3A8A;
+}
+
+.batches-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.class-pill-btn {
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  color: #334155;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.45rem 1.15rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 60px;
+  text-align: center;
+}
+
+.class-pill-btn:hover {
+  border-color: #2563EB;
+  color: #2563EB;
+  background: #EFF6FF;
+}
+
+.class-pill-btn.active {
+  background: #1D4ED8;
+  border-color: #1D4ED8;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
+}
+
+.batches-summary-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background: #F8F5EC;
+  color: #1E3A8A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.batches-summary-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.batches-summary-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.batches-summary-count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: #171717;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+/* Filter Controls Bar */
+.batches-filter-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.b-select-filter {
+  padding: 0.55rem 1rem;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  min-width: 170px;
+  color: #171717;
+  background: #FFFFFF;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.b-select-filter:focus {
+  outline: none;
+  border-color: #1E3A8A;
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.15);
+}
+
+/* Schedule Table Container */
+.batches-table-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.table-header-title {
+  background: #F8F5EC;
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid #D4AF37;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1E3A8A;
+}
+
+.batches-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: inherit;
+}
+
+.batches-table thead tr {
+  background: #1E3A8A !important;
+  color: #FFFFFF !important;
+}
+
+.batches-table th {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  letter-spacing: 0.02em;
+}
+
+.batches-table th:last-child {
+  border-right: none;
+  text-align: center;
+}
+
+.batches-table tbody tr {
+  border-bottom: 1px solid #E5E5E5;
+  transition: background 0.15s ease;
+}
+
+.batches-table tbody tr:hover {
+  background: #F8F5EC;
+}
+
+.batches-table td {
+  padding: 0.9rem 1.25rem;
+  font-size: 0.92rem;
+  color: #171717;
+  border-right: 1px solid #E5E5E5;
+  vertical-align: middle;
+}
+
+.batches-table td:last-child {
+  border-right: none;
+  text-align: center;
+}
+
+.b-subject-cell {
+  font-weight: 800;
+  color: #1E3A8A;
+}
+
+.b-time-badge {
+  display: inline-block;
+  background: #F8F5EC;
+  color: #171717;
+  border: 1px solid #D4AF37;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.b-teacher-cell {
+  font-weight: 700;
+  color: #222222;
+}
+
+.b-days-tag {
+  color: #444444;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .batches-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .batches-table th,
+  .batches-table td {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.82rem;
+  }
+}
+
+
+/* Global Table Responsive Wrapper Fix */
+.att-table-card, .res-table-card, .fees-table-card, .ann-table-card, .table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Modal Responsive Mobile Viewport Fix */
+@media (max-width: 768px) {
+  .action-modal-card {
+    max-height: 88vh;
+    overflow-y: auto;
+    width: 95% !important;
+    padding: 1.25rem 1rem !important;
+  }
+}
