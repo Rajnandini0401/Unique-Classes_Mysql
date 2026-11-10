@@ -27,7 +27,7 @@ export const getPhotoUrl = (photo, fallback = '') => {
   // If relative upload path (e.g., /uploads/students/filename.jpg)
   const apiBase = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_URL)
     ? import.meta.env.VITE_API_URL
-    : 'http://localhost:5000/api';
+    : '/api';
   const backendOrigin = apiBase.replace(/\/api\/?$/, '');
   const pathPrefix = clean.startsWith('/') ? '' : '/';
 

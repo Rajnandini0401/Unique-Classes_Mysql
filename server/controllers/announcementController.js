@@ -171,7 +171,55 @@ export const getAnnouncements = async (req, res) => {
 };
 
 /**
- * GET /api/announcements/public & /api/announcements/student
+ * GET /api/announcements/public
+ * Fetch strictly public announcements intended for the public website
+ */
+export const getPublicAnnouncements = async (req, res) => {
+  try {
+    const sql = `
+      SELECT 
+        a.id,
+        a.id AS _id,
+        a.title,
+        a.content,
+        a.content AS message,
+        a.audience,
+        a.announcement_date AS announcementDate,
+        a.attachment,
+        a.status,
+        a.created_by_role AS createdByRole,
+        a.created_by_name AS createdByName,
+        a.created_at AS createdAt
+      FROM announcements a
+      WHERE a.status = 'Published' 
+        AND (a.audience = 'Public Website' OR a.audience = 'Public')
+      ORDER BY a.announcement_date DESC, a.id DESC
+    `;
+    const rows = await query(sql);
+
+    return res.json({
+      success: true,
+      announcements: rows.map(r => ({
+        id: r.id,
+        _id: r.id,
+        title: r.title,
+        content: r.content,
+        message: r.content,
+        audience: r.audience,
+        announcementDate: r.announcementDate ? new Date(r.announcementDate).toISOString().split('T')[0] : '',
+        attachment: r.attachment || '',
+        status: r.status,
+        createdByName: r.createdByName || 'Unique Classes'
+      }))
+    });
+  } catch (error) {
+    console.error('Error fetching public announcements:', error);
+    return res.status(500).json({ success: false, message: 'Server error fetching public announcements.' });
+  }
+};
+
+/**
+ * GET /api/announcements/student
  * Fetch announcements intended for students
  */
 export const getStudentAnnouncements = async (req, res) => {

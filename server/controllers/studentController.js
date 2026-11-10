@@ -3,7 +3,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import ExcelJS from 'exceljs';
 import { getConnection, query } from '../config/db.js';
-import { normalizeSubject } from '../../src/utils/subjectUtils.js';
+import { normalizeSubject } from '../src/utils/subjectUtils.js';
+
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

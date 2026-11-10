@@ -2,6 +2,7 @@ import express from 'express';
 import {
   getAnnouncements,
   getStudentAnnouncements,
+  getPublicAnnouncements,
   getAnnouncementById,
   createAnnouncement,
   updateAnnouncement,
@@ -14,8 +15,10 @@ const router = express.Router();
 // GET /api/announcements - Fetch announcements (role & class scoped)
 router.get('/', authenticateUser, getAnnouncements);
 
-// GET /api/announcements/public & /api/announcements/student - Student announcements
-router.get('/public', getStudentAnnouncements);
+// GET /api/announcements/public - Public website announcements only
+router.get('/public', getPublicAnnouncements);
+
+// GET /api/announcements/student - Student announcements
 router.get('/student', getStudentAnnouncements);
 
 // GET /api/announcements/:id - Fetch single announcement details

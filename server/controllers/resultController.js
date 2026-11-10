@@ -347,5 +347,236 @@ export const sendTestAbsentWhatsApp = async (req, res) => {
   }
 };
 
+/**
+ * GET /api/results/public-toppers
+ * Fetch Weekly Test Toppers for public website (Home Page & Results Page)
+ * Automatically groups tests, computes top scorers per test, and identifies joint toppers.
+ */
+export const getPublicTestToppers = async (req, res) => {
+  try {
+    const { standard, latestOnly } = req.query;
+
+    let sql = `
+      SELECT 
+        t.id AS testId,
+        t.title AS testTitle,
+        c.class_name AS standard,
+        s.subject_name AS subjectName,
+        t.total_marks AS totalMarks,
+        DATE_FORMAT(t.test_date, '%d %b %Y') AS testDate,
+        CAST(tr.marks_obtained AS DECIMAL(5,2)) AS marksObtained,
+        st.id AS studentDbId,
+        st.student_id AS studentBusinessId,
+        st.full_name AS studentName,
+        st.photo AS studentPhoto,
+        COALESCE(st.school_name, 'Unique Classes - Nilanga') AS schoolName
+      FROM tests t
+      JOIN classes c ON t.class_id = c.id
+      JOIN subjects s ON t.subject_id = s.id
+      JOIN test_results tr ON t.id = tr.test_id
+      JOIN students st ON tr.student_id = st.id
+      WHERE tr.status = 'PRESENT'
+    `;
+    const params = [];
+
+    if (standard && standard !== 'ALL' && standard !== 'All' && standard !== 'All Classes') {
+      sql += ` AND c.class_name = ?`;
+      params.push(standard);
+    }
+
+    sql += ` ORDER BY t.test_date DESC, t.id DESC, marksObtained DESC`;
+
+    const rows = await query(sql, params);
+
+    // Group rows by testId
+    const testMap = new Map();
+    for (const r of rows) {
+      if (!testMap.has(r.testId)) {
+        const rawClass = r.standard || '';
+        const formattedClass = rawClass.endsWith('th')
+          ? `${rawClass} Standard`
+          : (rawClass.toLowerCase().includes('science') || rawClass.toLowerCase().includes('navodaya') ? rawClass : `${rawClass} Class`);
+
+        let testDisplayTitle = r.testTitle || `${r.subjectName} Test`;
+        if (
+          !testDisplayTitle.toLowerCase().includes('test') &&
+          !testDisplayTitle.toLowerCase().includes('exam') &&
+          !testDisplayTitle.toLowerCase().includes('assessment')
+        ) {
+          testDisplayTitle = `${testDisplayTitle} Assessment`;
+        }
+
+        testMap.set(r.testId, {
+          id: `res-${r.testId}`,
+          testId: r.testId,
+          class: formattedClass,
+          classKey: r.standard,
+          testName: testDisplayTitle,
+          subject: r.subjectName,
+          totalMarks: Number(r.totalMarks) || 50,
+          testDate: r.testDate,
+          allRows: []
+        });
+      }
+      testMap.get(r.testId).allRows.push(r);
+    }
+
+    // If latestOnly is requested, retain only the latest test per class
+    let testGroups = Array.from(testMap.values());
+    if (latestOnly === 'true' || latestOnly === true) {
+      const seenClasses = new Set();
+      testGroups = testGroups.filter(g => {
+        const cKey = (g.classKey || '').toLowerCase();
+        if (!seenClasses.has(cKey)) {
+          seenClasses.add(cKey);
+          return true;
+        }
+        return false;
+      });
+    }
+
+    const dynamicResults = [];
+    for (const group of testGroups) {
+      if (!group.allRows.length) continue;
+
+      // Extract unique marks obtained in descending order to identify 1st and 2nd rank
+      const uniqueScores = [...new Set(group.allRows.map(x => Number(x.marksObtained)))].sort((a, b) => b - a);
+      if (uniqueScores.length === 0) continue;
+
+      const rank1Score = uniqueScores[0];
+      const rank2Score = uniqueScores.length > 1 ? uniqueScores[1] : null;
+      const rank3Score = uniqueScores.length > 2 ? uniqueScores[2] : null;
+
+      const rank1Rows = group.allRows.filter(x => Number(x.marksObtained) === rank1Score);
+      const rank2Rows = rank2Score !== null ? group.allRows.filter(x => Number(x.marksObtained) === rank2Score) : [];
+      const rank3Rows = rank3Score !== null ? group.allRows.filter(x => Number(x.marksObtained) === rank3Score) : [];
+
+      const isJoint1 = rank1Rows.length > 1;
+      const isJoint2 = rank2Rows.length > 1;
+      const isJoint3 = rank3Rows.length > 1;
+
+      // Map 1st, 2nd, and 3rd rankers
+      const toppers = [
+        ...rank1Rows.map(s => {
+          const marks = Number(s.marksObtained);
+          const pctVal = group.totalMarks > 0 ? ((marks / group.totalMarks) * 100).toFixed(0) : '0';
+          return {
+            id: s.studentBusinessId || `student-${s.studentDbId}`,
+            name: s.studentName,
+            marks: marks,
+            percentage: `${pctVal}%`,
+            rank: 1,
+            badge: isJoint1 ? 'Joint 1st Rank' : '1st Rank',
+            school: s.schoolName,
+            photo: s.studentPhoto || ''
+          };
+        }),
+        ...rank2Rows.map(s => {
+          const marks = Number(s.marksObtained);
+          const pctVal = group.totalMarks > 0 ? ((marks / group.totalMarks) * 100).toFixed(0) : '0';
+          return {
+            id: s.studentBusinessId || `student-${s.studentDbId}`,
+            name: s.studentName,
+            marks: marks,
+            percentage: `${pctVal}%`,
+            rank: 2,
+            badge: isJoint2 ? 'Joint 2nd Rank' : '2nd Rank',
+            school: s.schoolName,
+            photo: s.studentPhoto || ''
+          };
+        }),
+        ...rank3Rows.map(s => {
+          const marks = Number(s.marksObtained);
+          const pctVal = group.totalMarks > 0 ? ((marks / group.totalMarks) * 100).toFixed(0) : '0';
+          return {
+            id: s.studentBusinessId || `student-${s.studentDbId}`,
+            name: s.studentName,
+            marks: marks,
+            percentage: `${pctVal}%`,
+            rank: 3,
+            badge: isJoint3 ? 'Joint 3rd Rank' : '3rd Rank',
+            school: s.schoolName,
+            photo: s.studentPhoto || ''
+          };
+        })
+      ];
+
+      dynamicResults.push({
+        id: group.id,
+        testId: group.testId,
+        class: group.class,
+        classKey: group.classKey,
+        testName: group.testName,
+        totalMarks: group.totalMarks,
+        testDate: group.testDate,
+        isJointToppers: isJoint1,
+        hasRank2: rank2Rows.length > 0,
+        toppers: toppers
+      });
+    }
+
+    // Build distinct student toppers list directly from database rows for showcase cards
+    const studentMap = new Map();
+    for (const r of rows) {
+      const studentKey = r.studentBusinessId || `student-${r.studentDbId}`;
+      const marks = Number(r.marksObtained);
+      const totalMarks = Number(r.totalMarks) || 50;
+      const pct = totalMarks > 0 ? (marks / totalMarks) * 100 : 0;
+
+      if (!studentMap.has(studentKey)) {
+        studentMap.set(studentKey, {
+          id: studentKey,
+          name: r.studentName,
+          board: r.standard || '10th',
+          classKey: r.standard || '10th',
+          category: r.standard || '10th',
+          school: r.schoolName || 'Unique Classes Nilanga',
+          photo: r.studentPhoto || '',
+          highestPct: pct,
+          marks: `${marks}/${totalMarks}`,
+          rank: '1st Rank',
+          subjects: [],
+          year: '2026'
+        });
+      }
+
+      const stObj = studentMap.get(studentKey);
+      if (pct > stObj.highestPct) {
+        stObj.highestPct = pct;
+        stObj.marks = `${marks}/${totalMarks}`;
+      }
+      // Add subject if not already recorded
+      if (!stObj.subjects.some(sub => sub.name === (r.subjectName || r.testTitle))) {
+        stObj.subjects.push({
+          name: r.subjectName || r.testTitle || 'Main Subject',
+          score: `${marks}/${totalMarks}`
+        });
+      }
+    }
+
+    const studentToppers = Array.from(studentMap.values())
+      .map(s => ({
+        ...s,
+        percentage: `${Math.round(s.highestPct)}%`,
+        review: `Scored top marks in ${s.subjects.map(x => x.name).slice(0, 2).join(' & ')} with regular mock test series and faculty guidance at Unique Classes Nilanga.`
+      }))
+      .sort((a, b) => b.highestPct - a.highestPct);
+
+    return res.json({
+      success: true,
+      count: dynamicResults.length,
+      data: dynamicResults,
+      studentToppers: studentToppers
+    });
+  } catch (error) {
+    console.error('Error fetching public test toppers:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Server error fetching test toppers.',
+      error: error.message
+    });
+  }
+};
+
 
 

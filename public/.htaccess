@@ -1,0 +1,14 @@
+# Hostinger Apache / LiteSpeed SPA Rewrite Configuration for React Router
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+
+  # Do not rewrite if the requested file, directory, or link exists on disk
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+
+  # Redirect all SPA routes (e.g., /login, /admin/*, /teacher/*) to index.html
+  RewriteRule . /index.html [L]
+</IfModule>

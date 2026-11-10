@@ -1,0 +1,369 @@
+/* ==========================================================================
+   PODIUM RESULTS CARD - MATCHING USER MOCKUP EXACTLY
+   Deep Midnight Navy background, 3-pillar winner podium (Rank 2, 1, 3),
+   golden crown, circular avatars with initials/photos, and bold percentages.
+   ========================================================================== */
+
+.podium-card-wrapper {
+  background: linear-gradient(165deg, #12131A 0%, #08090D 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 28px;
+  padding: 2.2rem 1.75rem 0 1.75rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.1);
+  max-width: 540px;
+  margin: 0 auto 3rem auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.podium-card-header {
+  margin-bottom: 2.2rem;
+  text-align: left;
+}
+
+.podium-weekly-badge {
+  color: #F4C542;
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.podium-test-title {
+  color: #FFFFFF;
+  font-size: clamp(1.5rem, 3.8vw, 2.1rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 0.45rem 0;
+  letter-spacing: -0.01em;
+}
+
+.podium-test-meta {
+  color: #94A3B8;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* The 3-Column Podium Stage */
+.podium-stage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.85rem;
+  position: relative;
+  width: 100%;
+}
+
+.podium-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Rank 1 (Center) Column */
+.podium-column.rank-1-col {
+  z-index: 5;
+}
+
+/* Golden Crown above Rank 1 */
+.podium-crown-icon {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounceSubtle 3s ease-in-out infinite;
+}
+
+/* Avatar Wrapper & Badges */
+.podium-avatar-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.podium-avatar-badge-tag {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: #12131A;
+  font-size: 0.68rem;
+  font-weight: 850;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.rank-1-col .podium-avatar-badge-tag {
+  color: #F4C542;
+  border: 1.5px solid #F4C542;
+}
+
+.rank-2-col .podium-avatar-badge-tag {
+  color: #CBD5E1;
+  border: 1.5px solid #CBD5E1;
+}
+
+.rank-3-col .podium-avatar-badge-tag {
+  color: #E6C76A;
+  border: 1.5px solid #E6C76A;
+}
+
+/* Circular Avatar with Photo */
+.podium-avatar-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1C1F2B;
+  color: #FFFFFF;
+  font-weight: 900;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.podium-avatar-circle:hover {
+  transform: scale(1.08);
+}
+
+.podium-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.podium-avatar-initials {
+  font-family: var(--font-family-heading);
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+
+/* Rank 1 Specifics */
+.rank-1-col .podium-avatar-circle {
+  width: 90px;
+  height: 90px;
+  border: 4.5px solid #F4C542;
+  font-size: 1.75rem;
+}
+
+.rank-1-col .podium-pillar {
+  background: linear-gradient(180deg, #F4C542 0%, #D4AF37 50%, #B8860B 100%);
+  height: 220px;
+  border-radius: 22px 22px 0 0;
+}
+
+.rank-1-col .podium-pillar-num {
+  font-size: 3.5rem;
+  color: #080808;
+}
+
+/* Rank 2 Specifics */
+.rank-2-col .podium-avatar-circle {
+  width: 78px;
+  height: 78px;
+  border: 3.8px solid #CBD5E1;
+  font-size: 1.45rem;
+}
+
+.rank-2-col .podium-pillar {
+  background: linear-gradient(180deg, #E2E8F0 0%, #CBD5E1 100%);
+  height: 150px;
+  border-radius: 18px 18px 0 0;
+}
+
+.rank-2-col .podium-pillar-num {
+  font-size: 2.8rem;
+  color: #080808;
+}
+
+/* Rank 3 Specifics */
+.rank-3-col .podium-avatar-circle {
+  width: 74px;
+  height: 74px;
+  border: 3.8px solid #E6C76A;
+  font-size: 1.35rem;
+}
+
+.rank-3-col .podium-pillar {
+  background: linear-gradient(180deg, #E6C76A 0%, #D4976A 100%);
+  height: 115px;
+  border-radius: 18px 18px 0 0;
+}
+
+.rank-3-col .podium-pillar-num {
+  font-size: 2.6rem;
+  color: #080808;
+}
+
+/* Student Name & Batch Text */
+.podium-student-name {
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-top: 0.65rem;
+  margin-bottom: 0.15rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 125px;
+}
+
+.podium-student-batch {
+  color: #94A3B8;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 125px;
+}
+
+/* Pillar Styling */
+.podium-pillar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: filter 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.podium-pillar:hover {
+  filter: brightness(1.05);
+}
+
+.podium-pillar-num {
+  color: #080808;
+  font-weight: 950;
+  font-family: var(--font-family-heading);
+  line-height: 1;
+  margin-top: 1.15rem;
+}
+
+.podium-pillar-pct {
+  color: #080808;
+  font-weight: 900;
+  font-size: 1.25rem;
+  margin-top: 0.35rem;
+}
+
+/* Toggle Avatar Mode Pill (Initials vs Photo) */
+.podium-toggle-pill {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 9999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: #F4C542;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+  z-index: 20;
+}
+
+.podium-toggle-pill:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #F4C542;
+}
+
+/* Responsive Scaling for Mobile Screens */
+@media (max-width: 520px) {
+  .podium-card-wrapper {
+    padding: 1.75rem 1rem 0 1rem;
+    border-radius: 22px;
+  }
+  .podium-stage {
+    gap: 0.5rem;
+  }
+  .rank-1-col .podium-avatar-circle {
+    width: 76px;
+    height: 76px;
+    font-size: 1.45rem;
+    border-width: 3.5px;
+  }
+  .rank-1-col .podium-pillar {
+    height: 185px;
+    border-radius: 18px 18px 0 0;
+  }
+  .rank-1-col .podium-pillar-num {
+    font-size: 2.9rem;
+    margin-top: 0.9rem;
+  }
+  .rank-1-col .podium-pillar-pct {
+    font-size: 1.15rem;
+  }
+
+  .rank-2-col .podium-avatar-circle {
+    width: 66px;
+    height: 66px;
+    font-size: 1.25rem;
+    border-width: 3px;
+  }
+  .rank-2-col .podium-pillar {
+    height: 130px;
+    border-radius: 16px 16px 0 0;
+  }
+  .rank-2-col .podium-pillar-num {
+    font-size: 2.3rem;
+    margin-top: 0.8rem;
+  }
+  .rank-2-col .podium-pillar-pct {
+    font-size: 1.05rem;
+  }
+
+  .rank-3-col .podium-avatar-circle {
+    width: 62px;
+    height: 62px;
+    font-size: 1.15rem;
+    border-width: 3px;
+  }
+  .rank-3-col .podium-pillar {
+    height: 100px;
+    border-radius: 16px 16px 0 0;
+  }
+  .rank-3-col .podium-pillar-num {
+    font-size: 2.1rem;
+    margin-top: 0.7rem;
+  }
+  .rank-3-col .podium-pillar-pct {
+    font-size: 1rem;
+  }
+
+  .podium-student-name {
+    font-size: 0.92rem;
+    max-width: 95px;
+  }
+  .podium-student-batch {
+    font-size: 0.72rem;
+    max-width: 95px;
+    margin-bottom: 0.75rem;
+  }
+}

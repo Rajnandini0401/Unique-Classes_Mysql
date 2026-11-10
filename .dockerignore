@@ -1,0 +1,12 @@
+node_modules
+dist
+dist.zip
+backend_deploy.zip
+server_app.zip
+.git
+.gitignore
+server
+.env
+.env.local
+.env.*.local
+*.log

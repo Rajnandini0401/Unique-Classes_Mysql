@@ -7,11 +7,15 @@ import {
   deleteTeacher,
   getTeacherPermissions,
   getAuthenticatedTeacherProfile,
-  getTeacherAllocations
+  getTeacherAllocations,
+  getPublicFaculty
 } from '../controllers/teacherController.js';
 import { authenticateUser, requireRole, verifyTeacherOwner } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
+
+// GET /api/teachers/public - Public endpoint for website faculty showcase (No auth required)
+router.get('/public', getPublicFaculty);
 
 // GET /api/teachers/me - Fetch teacher profile (unauthenticated or session teacher)
 router.get('/me', authenticateUser, getAuthenticatedTeacherProfile);

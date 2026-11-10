@@ -1,0 +1,259 @@
+/* ==========================================================================
+   ABOUT UNIQUE CLASSES SECTION (HOME PAGE)
+   Modern, elegant, high-conversion section with rich visual hierarchy.
+   ========================================================================== */
+
+.about-section-wrapper {
+  background: linear-gradient(180deg, #0B0C11 0%, #080808 100%);
+  padding: 5.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-grid-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Left Column: Narrative & Values */
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.12);
+  color: #F4C542;
+  padding: 0.4rem 0.95rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.about-title {
+  font-size: 2.35rem;
+  font-weight: 850;
+  color: #FFFFFF;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.2rem;
+}
+
+.about-title-highlight {
+  background: linear-gradient(135deg, #F4C542 0%, #D4AF37 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-lead-text {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #A3A3A3;
+  margin-bottom: 2rem;
+}
+
+/* Key Features Grid */
+.about-features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2.2rem;
+}
+
+.about-feature-item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.about-feature-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #F4C542;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.about-feature-text h4 {
+  font-size: 0.98rem;
+  font-weight: 750;
+  color: #FFFFFF;
+  margin: 0 0 0.25rem 0;
+}
+
+.about-feature-text p {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+.about-actions-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Right Column: Visual Dashboard Card */
+.about-card-showcase {
+  background: #12131A;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 24px;
+  padding: 2.2rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(212, 175, 55, 0.15);
+  position: relative;
+}
+
+.about-card-showcase::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  bottom: -12px;
+  left: -12px;
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  border-radius: 30px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.about-showcase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.6rem;
+}
+
+.about-showcase-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 0.2rem 0;
+}
+
+.about-showcase-sub {
+  font-size: 0.82rem;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+.about-badge-gold {
+  background: var(--gold-btn-gradient);
+  color: #080808;
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* 4-Stat Metric Box */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.about-stat-card {
+  background: #161822;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 14px;
+  padding: 1.1rem;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.about-stat-card:hover {
+  background: #1A1C28;
+  border-color: #F4C542;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.about-stat-number {
+  font-size: 1.7rem;
+  font-weight: 850;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.about-stat-number.highlight {
+  color: #F4C542;
+}
+
+.about-stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #A3A3A3;
+  line-height: 1.35;
+}
+
+/* Quote Box inside Showcase */
+.about-director-note {
+  background: linear-gradient(135deg, #090A0E 0%, #12131A 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+  color: #FFFFFF;
+  position: relative;
+}
+
+.about-director-quote {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #F8F5EC;
+  font-style: italic;
+  margin: 0 0 0.75rem 0;
+}
+
+.about-director-author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #A3A3A3;
+  font-weight: 600;
+}
+
+.about-director-author strong {
+  color: #F4C542;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .about-grid-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .about-section-wrapper {
+    padding: 4rem 0;
+  }
+  .about-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-features-list {
+    grid-template-columns: 1fr;
+  }
+  .about-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

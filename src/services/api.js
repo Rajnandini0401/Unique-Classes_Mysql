@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 // Helper for standardized fetch requests
 export const fetchAPI = async (endpoint, options = {}) => {
@@ -565,6 +565,30 @@ export const sendTestAbsentWhatsAppAPI = async (testId) => {
     method: 'POST',
     body: JSON.stringify({ testId }),
   });
+};
+
+export const getPublicTestToppersAPI = async (options) => {
+  const params = new URLSearchParams();
+  const standard = typeof options === 'string' ? options : options?.standard;
+  const latestOnly = typeof options === 'object' ? options?.latestOnly : false;
+
+  if (standard && standard !== 'ALL' && standard !== 'All' && standard !== 'All Classes') {
+    params.append('standard', standard);
+  }
+  if (latestOnly) {
+    params.append('latestOnly', 'true');
+  }
+
+  const queryString = params.toString() ? `?${params.toString()}` : '';
+  return await fetchAPI(`/results/public-toppers${queryString}`);
+};
+
+/**
+ * Public Faculty API Service
+ * Fetches real active teachers from MySQL database
+ */
+export const getPublicFacultyAPI = async () => {
+  return await fetchAPI('/teachers/public');
 };
 
 // ==================================================

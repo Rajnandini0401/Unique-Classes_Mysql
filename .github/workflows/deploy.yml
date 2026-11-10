@@ -1,0 +1,56 @@
+name: Deploy Unique Classes to VPS
+
+# Trigger deployment automatically whenever code is pushed to 'main' branch
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  deploy:
+    name: Deploy to VPS via SSH
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Server using SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          script_stop: true
+          script: |
+            echo "=============================================="
+            echo "🚀 Deployment Started on VPS..."
+            echo "=============================================="
+
+            # Find or clone the project directory
+            if [ -d "$HOME/Tution-Management-System" ]; then
+              cd "$HOME/Tution-Management-System"
+            elif [ -d "/var/www/Tution-Management-System" ]; then
+              cd "/var/www/Tution-Management-System"
+            else
+              echo "Project folder not found. Cloning repo to $HOME/Tution-Management-System..."
+              git clone https://github.com/Rajnandini0401/Tution-Management-System.git "$HOME/Tution-Management-System"
+              cd "$HOME/Tution-Management-System"
+            fi
+
+            # Pull latest commit cleanly from origin/main
+            echo "📥 Fetching and syncing latest code from GitHub..."
+            git fetch --all
+            git reset --hard origin/main
+
+            # Build updated containers and start in detached mode
+            echo "🐳 Rebuilding and launching Docker containers..."
+            docker compose up -d --build --remove-orphans
+
+            # Prune dangling Docker layers to save VPS disk storage
+            echo "🧹 Removing obsolete Docker image caches..."
+            docker image prune -f
+
+            echo "=============================================="
+            echo "✅ Unique Classes Application Successfully Updated!"
+            echo "=============================================="

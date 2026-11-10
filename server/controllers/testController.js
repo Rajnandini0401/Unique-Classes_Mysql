@@ -1,5 +1,5 @@
 import { query } from '../config/db.js';
-import { normalizeSubject } from '../../src/utils/subjectUtils.js';
+import { normalizeSubject } from '../src/utils/subjectUtils.js';
 
 /**
  * GET /api/tests

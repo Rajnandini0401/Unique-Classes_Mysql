@@ -1,4 +1,6 @@
 @import './variables.css';
+@import './cartoon-education.css';
+@import './podium-results.css';
 
 /* CSS Reset & Base Styles */
 *, *::before, *::after {
@@ -15,8 +17,8 @@ html {
 
 body {
   font-family: var(--font-family-body);
-  background-color: var(--bg-warm-ivory);
-  color: var(--text-dark);
+  background-color: var(--bg-primary-black);
+  color: var(--text-light);
   line-height: 1.6;
   overflow-x: hidden;
   overflow-y: auto;
@@ -27,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
   font-weight: 700;
   line-height: 1.25;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 a {
@@ -61,7 +63,7 @@ img, video {
   position: relative;
 }
 
-/* Alternating Section Backgrounds */
+/* Alternating Section Backgrounds - Royal Obsidian & Charcoal */
 .section-black {
   background-color: var(--bg-primary-black);
   color: var(--text-light);
@@ -75,18 +77,24 @@ img, video {
 }
 
 .section-cream {
-  background-color: var(--bg-soft-cream);
-  color: var(--text-dark);
+  background-color: #0E1017;
+  color: var(--text-light);
 }
 
 .section-light {
-  background-color: var(--bg-warm-ivory);
-  color: var(--text-dark);
+  background-color: #0B0C11;
+  color: var(--text-light);
 }
 
 .section-white {
-  background-color: var(--bg-pure-white);
-  color: var(--text-dark);
+  background-color: #12131A;
+  color: var(--text-light);
+}
+
+.section-cream h1, .section-cream h2, .section-cream h3, .section-cream h4,
+.section-light h1, .section-light h2, .section-light h3, .section-light h4,
+.section-white h1, .section-white h2, .section-white h3, .section-white h4 {
+  color: var(--text-light);
 }
 
 /* Grid Layouts */
@@ -175,7 +183,7 @@ img, video {
   background: var(--color-bright-gold);
 }
 
-/* Responsive Rules */
+/* Responsive Rules — Mobile-First Engineered */
 @media (max-width: 1024px) {
   .grid-3, .grid-4 {
     grid-template-columns: repeat(2, 1fr);
@@ -184,13 +192,34 @@ img, video {
 
 @media (max-width: 768px) {
   .section {
-    padding: 3.5rem 0;
+    padding: 3rem 0;
   }
   .grid-2, .grid-3, .grid-4 {
     grid-template-columns: 1fr;
   }
   .container {
     padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 2.25rem 0;
+  }
+  .container {
+    padding: 0 0.85rem;
+  }
+}
+
+/* Global Reduced-Motion Accessibility Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

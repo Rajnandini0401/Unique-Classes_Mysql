@@ -5,11 +5,15 @@ import {
   getStudentResults,
   getClassLeaderboard,
   updateResult,
-  sendTestAbsentWhatsApp
+  sendTestAbsentWhatsApp,
+  getPublicTestToppers
 } from '../controllers/resultController.js';
 import { authenticateUser } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
+
+// GET /api/results/public-toppers - Public website Weekly Test Toppers (No auth required)
+router.get('/public-toppers', getPublicTestToppers);
 
 // POST /api/results - Save/Update student test scores
 router.post('/', authenticateUser, createResults);

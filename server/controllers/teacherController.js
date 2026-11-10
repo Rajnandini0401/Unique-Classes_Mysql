@@ -755,3 +755,87 @@ export const getAuthenticatedTeacherProfile = async (req, res) => {
     return res.status(500).json({ success: false, message: 'Server error fetching teacher profile' });
   }
 };
+
+/**
+ * GET /api/teachers/public
+ * Public endpoint to fetch active faculty for public website (Home Page & Faculty Page).
+ * No authentication required.
+ */
+export const getPublicFaculty = async (req, res) => {
+  try {
+    const sql = `
+      SELECT 
+        t.id,
+        t.teacher_id AS teacherId,
+        t.name,
+        t.education,
+        t.photo,
+        t.status,
+        GROUP_CONCAT(DISTINCT s.subject_name ORDER BY s.subject_name SEPARATOR ', ') AS subjects_str,
+        GROUP_CONCAT(DISTINCT c.class_name ORDER BY c.id SEPARATOR ', ') AS classes_str
+      FROM teachers t
+      LEFT JOIN teacher_subjects ts ON t.id = ts.teacher_id
+      LEFT JOIN subjects s ON ts.subject_id = s.id
+      LEFT JOIN teacher_classes tc ON t.id = tc.teacher_id
+      LEFT JOIN classes c ON tc.class_id = c.id
+      WHERE t.status = 'Active'
+      GROUP BY t.id
+      ORDER BY t.id ASC
+    `;
+
+    const rows = await query(sql);
+
+    const facultyList = rows.map((t) => {
+      const rawSubjects = t.subjects_str || 'General Studies';
+      const rawClasses = t.classes_str || 'All Standards';
+
+      let experience = '8+ Years Experience';
+      let badge = 'Faculty Specialist';
+      let bio = `Dedicated mentor specializing in conceptual clarity, rigorous problem-solving practice, and individual doubt resolution at Unique Classes Nilanga.`;
+
+      const subLower = rawSubjects.toLowerCase();
+      if (subLower.includes('math')) {
+        badge = 'Lead Mathematics Mentor';
+        experience = '10+ Years Experience';
+        bio = `Specialist in speed math, analytical reasoning, and board exam precision for secondary and higher secondary standards.`;
+      } else if (subLower.includes('science') || subLower.includes('physics') || subLower.includes('biology')) {
+        badge = 'Senior Science Head';
+        experience = '9+ Years Experience';
+        bio = `Passionate science educator known for diagrammatic visual logic, deep fundamental principles, and high-scoring techniques.`;
+      } else if (subLower.includes('english')) {
+        badge = 'Language & Grammar Lead';
+        experience = '7+ Years Experience';
+        bio = `Expert in developing English grammar depth, comprehension speed, vocabulary mastery, and academic presentation skills.`;
+      }
+
+      return {
+        id: `fac-${t.id}`,
+        dbId: t.id,
+        teacherId: t.teacherId,
+        name: t.name,
+        subject: rawSubjects,
+        classes: rawClasses,
+        qualification: t.education || 'M.Sc., B.Ed',
+        experience: experience,
+        bio: bio,
+        photo: t.photo || '',
+        badge: badge
+      };
+    });
+
+    return res.json({
+      success: true,
+      count: facultyList.length,
+      data: facultyList,
+      faculty: facultyList
+    });
+  } catch (error) {
+    console.error('Error fetching public faculty:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Server error fetching faculty list.',
+      error: error.message
+    });
+  }
+};
+

@@ -1,6 +1,18 @@
-﻿import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AuthContext, AuthProvider } from './context/AuthContext';
+
+// Public Layout Components & Pages
+import Navbar from './components/common/Navbar';
+import Footer from './components/common/Footer';
+import CourseAdModal from './components/modals/CourseAdModal';
+import HomePage from './pages/HomePage';
+import CoursesPage from './pages/CoursesPage';
+import ResultsPage from './pages/ResultsPage';
+import GalleryPage from './pages/GalleryPage';
+import FacultyPage from './pages/FacultyPage';
+import AnnouncementsPage from './pages/AnnouncementsPage';
+import ContactPage from './pages/ContactPage';
 
 import LoginPage from './pages/LoginPage';
 import AdminDashboardPage from './pages/admin/Dashboard';
@@ -55,6 +67,21 @@ const ScrollToTop = () => {
   }, [pathname]);
 
   return null;
+};
+
+// Layout wrapper for Public Pages with Navbar & Footer
+const PublicLayout = ({ children }) => {
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Navbar />
+      <main style={{ flex: 1 }}>{children}</main>
+      <Footer />
+      {!isLoginPage && <CourseAdModal />}
+    </div>
+  );
 };
 
 // Route Wrapper for Student Portal Access Protection
@@ -163,11 +190,17 @@ function App() {
       <Router>
         <ScrollToTop />
         <Routes>
-          {/* Default Route -> Redirect to Admin Dashboard */}
-          <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
+          {/* Public Website Routes */}
+          <Route path="/" element={<PublicLayout><HomePage /></PublicLayout>} />
+          <Route path="/courses" element={<PublicLayout><CoursesPage /></PublicLayout>} />
+          <Route path="/results" element={<PublicLayout><ResultsPage /></PublicLayout>} />
+          <Route path="/gallery" element={<PublicLayout><GalleryPage /></PublicLayout>} />
+          <Route path="/faculty" element={<PublicLayout><FacultyPage /></PublicLayout>} />
+          <Route path="/announcements" element={<PublicLayout><AnnouncementsPage /></PublicLayout>} />
+          <Route path="/contact" element={<PublicLayout><ContactPage /></PublicLayout>} />
 
           {/* Login Portal */}
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<PublicLayout><LoginPage /></PublicLayout>} />
 
           {/* Admin Panel Routes (Protected) */}
           <Route path="/admin/dashboard" element={<AdminProtectedRoute><AdminDashboardPage /></AdminProtectedRoute>} />
@@ -219,8 +252,8 @@ function App() {
           <Route path="/student/announcements" element={<StudentProtectedRoute><StudentAnnouncementsPage /></StudentProtectedRoute>} />
           <Route path="/student/assignments" element={<StudentProtectedRoute><StudentAssignmentsPage /></StudentProtectedRoute>} />
 
-          {/* Catch-all fallback -> Redirect to Admin Dashboard */}
-          <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
+          {/* Catch-all fallback -> Redirect to Home Page */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
     </AuthProvider>

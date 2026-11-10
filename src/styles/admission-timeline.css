@@ -1,0 +1,576 @@
+/* ==========================================================================
+   ANIMATED VERTICAL TIMELINE: 4-STEP ADMISSION PROCESS
+   Royal Black & Gold Luxury Theme — Mobile-First Engineered
+   ========================================================================== */
+
+.admission-timeline-section {
+  position: relative;
+  background: linear-gradient(145deg, #0e121a 0%, #080a0f 65%, #050608 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.32);
+  border-radius: 1.75rem;
+  padding: 3.25rem 2.5rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.1);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Atmospheric Ambient Gold Radial Glows */
+.admission-timeline-glow-top {
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.admission-timeline-glow-bottom {
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Header Area */
+.admission-timeline-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem auto;
+  position: relative;
+  z-index: 2;
+  padding: 0 0.5rem;
+}
+
+.admission-timeline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.18) 0%, rgba(212, 175, 55, 0.06) 100%);
+  border: 1px solid #f4c542;
+  color: #fcf6ba;
+  padding: 0.35rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.18);
+}
+
+.admission-timeline-title {
+  font-size: clamp(1.65rem, 3.8vw, 2.35rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.admission-timeline-title .gold-accent {
+  background: linear-gradient(135deg, #f4c542 0%, #e6c76a 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.admission-timeline-desc {
+  font-size: 0.98rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   VERTICAL TIMELINE TRACK & PROGRESS LINE
+   ========================================================================== */
+.admission-timeline-track {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  z-index: 2;
+}
+
+/* Background static track line */
+.admission-timeline-line-bg {
+  position: absolute;
+  width: 3px;
+  background: rgba(212, 175, 55, 0.16);
+  border-radius: 9999px;
+  z-index: 1;
+}
+
+/* Animated progressive golden line */
+.admission-timeline-line-progress {
+  position: absolute;
+  width: 3px;
+  background: linear-gradient(180deg, #f4c542 0%, #d4af37 50%, #f59e0b 100%);
+  border-radius: 9999px;
+  box-shadow: 0 0 14px rgba(244, 197, 66, 0.75), 0 0 24px rgba(212, 175, 55, 0.4);
+  z-index: 2;
+  transform-origin: top center;
+  will-change: transform, height;
+}
+
+/* Desktop positioning for lines */
+@media (min-width: 860px) {
+  .admission-timeline-line-bg {
+    left: 50%;
+    top: 45px;
+    bottom: 50px;
+    transform: translateX(-50%);
+  }
+  .admission-timeline-line-progress {
+    left: 50%;
+    top: 45px;
+    bottom: 50px;
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile positioning for lines: strictly on left */
+@media (max-width: 859px) {
+  .admission-timeline-line-bg {
+    left: 24px;
+    top: 35px;
+    bottom: 40px;
+    transform: translateX(-50%);
+  }
+  .admission-timeline-line-progress {
+    left: 24px;
+    top: 35px;
+    bottom: 40px;
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   TIMELINE STEP ROW & NUMBERED NODE
+   ========================================================================== */
+.admission-timeline-step {
+  position: relative;
+  margin-bottom: 2.75rem;
+  z-index: 3;
+}
+
+.admission-timeline-step:last-child {
+  margin-bottom: 0.5rem;
+}
+
+/* Desktop 3-column alternating grid */
+@media (min-width: 860px) {
+  .admission-timeline-step {
+    display: grid;
+    grid-template-columns: 1fr 70px 1fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .admission-timeline-step.left-step .timeline-col-card {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .admission-timeline-step.left-step .timeline-col-node {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .admission-timeline-step.left-step .timeline-col-empty {
+    grid-column: 3;
+    grid-row: 1;
+    display: block;
+  }
+
+  .admission-timeline-step.right-step .timeline-col-empty {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+  }
+  .admission-timeline-step.right-step .timeline-col-node {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .admission-timeline-step.right-step .timeline-col-card {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
+
+/* Mobile 2-column layout: Node on left, Card on right */
+@media (max-width: 859px) {
+  .admission-timeline-section {
+    padding: 2.25rem 1.15rem;
+    border-radius: 1.35rem;
+    margin-bottom: 3rem;
+  }
+
+  .admission-timeline-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .admission-timeline-desc {
+    font-size: 0.92rem;
+  }
+
+  .admission-timeline-step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.1rem;
+    align-items: flex-start;
+    margin-bottom: 2.25rem;
+  }
+
+  .admission-timeline-step .timeline-col-node {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-content: center;
+    padding-top: 0.2rem;
+  }
+
+  .admission-timeline-step .timeline-col-card {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .admission-timeline-step .timeline-col-empty {
+    display: none !important;
+  }
+}
+
+/* Extra small mobile adjustments */
+@media (max-width: 420px) {
+  .admission-timeline-section {
+    padding: 1.85rem 0.85rem;
+    border-radius: 1.15rem;
+  }
+
+  .admission-timeline-step {
+    grid-template-columns: 44px 1fr;
+    gap: 0.85rem;
+  }
+
+  .admission-timeline-line-bg,
+  .admission-timeline-line-progress {
+    left: 22px;
+  }
+}
+
+/* Node Container */
+.timeline-col-node {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The Numbered Circle */
+.admission-timeline-node {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 4;
+  cursor: default;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #0d1017;
+  border: 2px solid rgba(212, 175, 55, 0.35);
+  color: #e6c76a;
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  flex-shrink: 0;
+}
+
+@media (max-width: 859px) {
+  .admission-timeline-node {
+    width: 46px;
+    height: 46px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .admission-timeline-node {
+    width: 42px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Active Highlight for Node */
+.admission-timeline-node.active {
+  background: linear-gradient(135deg, #f4c542 0%, #d4af37 100%);
+  border: 2.5px solid #fff8dc;
+  color: #080808;
+  font-weight: 900;
+  font-size: 1.12rem;
+  box-shadow: 0 0 24px rgba(244, 197, 66, 0.8), 0 0 35px rgba(212, 175, 55, 0.45);
+  transform: scale(1.08);
+}
+
+@media (max-width: 859px) {
+  .admission-timeline-node.active {
+    font-size: 1rem;
+    transform: scale(1.05);
+  }
+}
+
+/* Pulsing outer aura ring when active */
+.admission-timeline-node.active::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(244, 197, 66, 0.6);
+  animation: nodeAuraPulse 2.4s infinite cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+@keyframes nodeAuraPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   STEP CARD STYLES
+   ========================================================================== */
+.admission-timeline-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(19, 23, 32, 0.96) 0%, rgba(12, 15, 22, 0.96) 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.22);
+  border-radius: 16px;
+  padding: 1.6rem 1.85rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 859px) {
+  .admission-timeline-card {
+    padding: 1.35rem 1.25rem;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .admission-timeline-card {
+    padding: 1.15rem 0.95rem;
+  }
+}
+
+/* Active / InView Card State */
+.admission-timeline-card.active {
+  border-color: rgba(244, 197, 66, 0.55);
+  background: linear-gradient(145deg, rgba(22, 27, 38, 0.97) 0%, rgba(14, 17, 25, 0.97) 100%);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.65), 0 0 28px rgba(212, 175, 55, 0.16);
+}
+
+.admission-timeline-card:hover {
+  border-color: rgba(244, 197, 66, 0.7);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.22);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 859px) {
+  .admission-timeline-card:hover {
+    transform: none; /* Keep touch interactions stable */
+  }
+}
+
+/* Desktop Connecting Connector Line between Card and Center Node */
+@media (min-width: 860px) {
+  .admission-timeline-step.left-step .admission-timeline-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    width: 15px;
+    height: 2px;
+    background: rgba(212, 175, 55, 0.3);
+    transform: translateY(-50%);
+    transition: background 0.35s ease;
+  }
+
+  .admission-timeline-step.left-step .admission-timeline-card.active::after {
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.3) 0%, #f4c542 100%);
+  }
+
+  .admission-timeline-step.right-step .admission-timeline-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    width: 15px;
+    height: 2px;
+    background: rgba(212, 175, 55, 0.3);
+    transform: translateY(-50%);
+    transition: background 0.35s ease;
+  }
+
+  .admission-timeline-step.right-step .admission-timeline-card.active::after {
+    background: linear-gradient(90deg, #f4c542 0%, rgba(212, 175, 55, 0.3) 100%);
+  }
+}
+
+/* Card Header: Meta Row */
+.card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.card-step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #fcf6ba;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.card-icon-pill {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.16) 0%, rgba(212, 175, 55, 0.04) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #f4c542;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+@media (max-width: 420px) {
+  .card-icon-pill {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+}
+
+/* Card Heading & Description */
+.card-step-title {
+  font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.45rem 0;
+  line-height: 1.35;
+}
+
+.card-step-desc {
+  font-size: clamp(0.86rem, 2.2vw, 0.94rem);
+  color: #cbd5e1;
+  line-height: 1.58;
+  margin: 0;
+}
+
+/* Card Links / Action Buttons */
+.card-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.card-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  background: linear-gradient(90deg, rgba(244, 197, 66, 0.1) 0%, rgba(212, 175, 55, 0.04) 100%);
+  border: 1px solid rgba(244, 197, 66, 0.32);
+  color: #fcf6ba;
+  font-size: 0.86rem;
+  font-weight: 750;
+  padding: 0.75rem 1.1rem;
+  min-height: 44px; /* Touch-friendly tap target */
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: rgba(244, 197, 66, 0.2);
+}
+
+.card-action-btn:hover,
+.card-action-btn:active {
+  background: linear-gradient(90deg, rgba(244, 197, 66, 0.22) 0%, rgba(212, 175, 55, 0.12) 100%);
+  border-color: #f4c542;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+
+@media (min-width: 860px) {
+  .card-action-btn:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.card-action-btn.store-btn {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.12) 0%, rgba(212, 175, 55, 0.08) 100%);
+  border-color: rgba(96, 165, 250, 0.45);
+  color: #dbeafe;
+}
+
+.card-action-btn.store-btn:hover,
+.card-action-btn.store-btn:active {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.24) 0%, rgba(212, 175, 55, 0.18) 100%);
+  border-color: #60a5fa;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* ==========================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .admission-timeline-line-progress {
+    height: 100% !important;
+    transform: none !important;
+  }
+
+  .admission-timeline-node.active::after {
+    animation: none !important;
+  }
+
+  .admission-timeline-card,
+  .admission-timeline-node,
+  .card-action-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}

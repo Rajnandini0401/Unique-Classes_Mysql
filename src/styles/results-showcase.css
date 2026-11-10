@@ -1,0 +1,556 @@
+/* ==========================================================================
+   RESULTS SHOWCASE & TOPPER CARDS (PUBLIC WEBSITE)
+   Inspired by modern coaching topper galleries with real student photographs.
+   ========================================================================== */
+
+.results-showcase-section {
+  background: #080808;
+  padding: 5rem 0 5.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.results-showcase-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1280px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.35), transparent);
+}
+
+/* Header */
+.results-header-wrap {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.results-main-title {
+  font-size: 2.5rem;
+  font-weight: 850;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.results-main-subtitle {
+  font-size: 1.08rem;
+  color: #94A3B8;
+  line-height: 1.6;
+  font-weight: 450;
+  margin: 0;
+}
+
+/* Category Filter Tabs */
+.results-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+}
+
+.results-filter-pill {
+  background: #12131A;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #CBD5E1;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.5rem 1.15rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.22s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  outline: none;
+}
+
+.results-filter-pill:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: #F4C542;
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-1px);
+}
+
+.results-filter-pill.active {
+  background: linear-gradient(135deg, #D4AF37 0%, #AA771C 100%);
+  color: #080808;
+  border-color: #D4AF37;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+}
+
+/* Carousel / Slider Wrapper */
+.toppers-carousel-wrapper {
+  position: relative;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.toppers-carousel-track {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0.5rem 1.8rem 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge */
+}
+
+.toppers-carousel-track::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Full Grid Layout (Used on ResultsPage - Completely eliminates side scroll) */
+.toppers-full-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.8rem;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 1rem 0.5rem 2.5rem 0.5rem;
+}
+
+.toppers-full-grid .topper-light-card {
+  flex: unset !important;
+  width: 100% !important;
+}
+
+/* Nav Arrows */
+.carousel-nav-btn {
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #12131A;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #F4C542;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.carousel-nav-btn:hover {
+  background: linear-gradient(135deg, #D4AF37 0%, #F4C542 100%);
+  color: #080808;
+  border-color: #D4AF37;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-nav-btn.prev {
+  left: 0;
+}
+
+.carousel-nav-btn.next {
+  right: 0;
+}
+
+/* Topper Card (Matching Royal Obsidian & Gold Theme) */
+.topper-light-card {
+  flex: 0 0 250px;
+  scroll-snap-align: start;
+  background: #12131A;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 16px;
+  padding: 1rem 1rem 1.15rem 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.topper-light-card:hover {
+  transform: translateY(-6px);
+  border-color: #D4AF37;
+  box-shadow: 0 16px 36px rgba(212, 175, 55, 0.2);
+}
+
+/* Top Row: Badge & Bookmark */
+.topper-card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.topper-class-badge {
+  background: linear-gradient(135deg, #D4AF37 0%, #AA771C 100%);
+  color: #080808;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.65rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.25);
+  white-space: nowrap;
+}
+
+.topper-bookmark-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.18s ease;
+}
+
+.topper-bookmark-btn:hover {
+  color: #F4C542;
+}
+
+/* Student Photo Viewport */
+.topper-photo-frame {
+  width: 100%;
+  height: 200px;
+  background: #0B0C11;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.topper-student-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.topper-light-card:hover .topper-student-image {
+  transform: scale(1.04);
+}
+
+/* Card Body */
+.topper-card-meta {
+  margin-top: 1rem;
+  margin-bottom: 1.1rem;
+  text-align: left;
+}
+
+.topper-card-name {
+  font-size: 1.08rem;
+  font-weight: 750;
+  color: #FFFFFF;
+  margin: 0 0 0.25rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topper-card-school {
+  font-size: 0.84rem;
+  color: #94A3B8;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Card Bottom: Percentage & Review Button */
+.topper-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topper-card-percentage {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #F4C542;
+  letter-spacing: -0.02em;
+}
+
+.topper-review-link {
+  background: transparent;
+  border: none;
+  color: #D4AF37;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.topper-review-link:hover {
+  color: #F4C542;
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
+   REVIEW MODAL / SUCCESS STORY DIALOG
+   ========================================================================== */
+.review-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 8, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 1rem;
+  animation: modalFadeIn 0.22s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.review-modal-box {
+  background: #12131A;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 20px;
+  max-width: 620px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  position: relative;
+  padding: 2.2rem 2rem;
+  animation: modalSlideUp 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.review-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  color: #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.review-modal-close:hover {
+  background: var(--gold-btn-gradient);
+  color: #080808;
+  transform: rotate(90deg);
+}
+
+/* Inside Modal */
+.modal-student-hero {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.modal-student-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  border: 3px solid #12131A;
+  outline: 2px solid #D4AF37;
+}
+
+.modal-student-info h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 0.3rem 0;
+}
+
+.modal-student-info p {
+  font-size: 0.92rem;
+  color: #94A3B8;
+  margin: 0 0 0.6rem 0;
+}
+
+.modal-badges-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.modal-badge-score {
+  background: rgba(212, 175, 55, 0.15);
+  color: #F4C542;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.modal-badge-rank {
+  background: rgba(244, 197, 66, 0.18);
+  color: #FDE047;
+  font-weight: 750;
+  font-size: 0.82rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(244, 197, 66, 0.3);
+}
+
+/* Quote Section */
+.modal-quote-wrapper {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 4px solid #D4AF37;
+  padding: 1.2rem 1.4rem;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+
+.modal-quote-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #E2E8F0;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Subject Scores List */
+.modal-scores-title {
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: #F4C542;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.modal-scores-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+  margin-bottom: 1.6rem;
+}
+
+.modal-score-item {
+  background: #1A1D27;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-score-sub {
+  font-size: 0.85rem;
+  color: #CBD5E1;
+  font-weight: 600;
+}
+
+.modal-score-val {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #F4C542;
+}
+
+/* Modal Actions */
+.modal-actions-bar {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.modal-action-btn-gold {
+  background: var(--gold-btn-gradient);
+  color: #080808;
+  border: none;
+  font-weight: 850;
+  padding: 0.75rem 1.4rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.modal-action-btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
+  filter: brightness(1.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .results-showcase-section {
+    padding: 3.5rem 0 4rem 0;
+  }
+  .results-main-title {
+    font-size: 1.85rem;
+  }
+  .topper-light-card {
+    flex: 0 0 220px;
+  }
+  .topper-photo-frame {
+    height: 175px;
+  }
+  .carousel-nav-btn {
+    display: none; /* Swipe on mobile */
+  }
+  .modal-scores-grid {
+    grid-template-columns: 1fr;
+  }
+}

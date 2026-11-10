@@ -1,0 +1,2092 @@
+/* ==========================================================================
+   ALEEM GAMES INSPIRED DESIGN SYSTEM FOR UNIQUE CLASSES
+   Vibrant, playful, gamified, 3D cartoon educational aesthetics
+   ========================================================================== */
+
+:root {
+  /* Classic Royal Black & Gold Signature Palette */
+  --aleem-purple-dark: #080808;
+  --aleem-purple-deep: #0C0D12;
+  --aleem-purple-brand: #14161F;
+  --aleem-purple-primary: #D4AF37;
+  --aleem-purple-vibrant: #F4C542;
+  --aleem-purple-light: #E6C76A;
+  --aleem-purple-soft: rgba(212, 175, 55, 0.15);
+  --aleem-purple-bg: #0B0C11;
+
+  /* Royal Metallic Gold & Warm Accents */
+  --aleem-pink: #E6C76A;
+  --aleem-pink-hot: #F4C542;
+  --aleem-orange-fire: #D4AF37;
+  --aleem-orange: #F59E0B;
+  --aleem-amber: #D4AF37;
+  --aleem-yellow: #F4C542;
+  --aleem-yellow-sun: #FCF6BA;
+  --aleem-cyan: #E6C76A;
+  --aleem-green: #D4AF37;
+
+  /* Neutrals & Surfaces */
+  --aleem-card-bg: #12131A;
+  --aleem-card-border: rgba(212, 175, 55, 0.22);
+  --aleem-shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --aleem-shadow-md: 0 10px 28px rgba(0, 0, 0, 0.6);
+  --aleem-shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.75);
+  --aleem-shadow-glow: 0 0 35px rgba(212, 175, 55, 0.28);
+
+  /* Gradients */
+  --grad-fire: linear-gradient(135deg, #D4AF37 0%, #F4C542 50%, #B8860B 100%);
+  --grad-sunset: linear-gradient(90deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+  --grad-hero: linear-gradient(135deg, #090A0E 0%, #12131A 50%, #171822 100%);
+  --grad-cosmic: linear-gradient(135deg, #07080A 0%, #0E1017 40%, #14161F 70%, #07080A 100%);
+  --grad-stats: linear-gradient(90deg, #08080A 0%, #12131A 50%, #08080A 100%);
+  --grad-app-banner: linear-gradient(135deg, #090A0E 0%, #14161F 50%, #1A1C29 100%);
+}
+
+/* ==========================================================================
+   ANIMATIONS & FLOATING OBJECTS
+   ========================================================================== */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(-3deg);
+  }
+}
+
+@keyframes floatRandom1 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(14px, -18px) rotate(4deg);
+  }
+  66% {
+    transform: translate(-12px, 12px) rotate(-3deg);
+  }
+}
+
+@keyframes floatRandom2 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(-18px, 14px) rotate(-5deg);
+  }
+  66% {
+    transform: translate(16px, -12px) rotate(4deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-float-blob1 {
+  animation: floatRandom1 12s ease-in-out infinite;
+}
+
+.animate-float-blob2 {
+  animation: floatRandom2 15s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+/* ==========================================================================
+   STICKER WRAPPER & HOVER EFFECTS
+   ========================================================================== */
+.edu-sticker {
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+}
+
+.edu-sticker:hover {
+  transform: scale(1.18) rotate(6deg);
+}
+
+.sticker-floating-item {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   BACKGROUND PATTERNS (ALEEM STARLIGHT & DOTS)
+   ========================================================================== */
+.starlight-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 8%, rgba(255, 255, 255, 0.75) 50%, transparent 50%),
+    radial-gradient(2px 2px at 28% 20%, rgba(212, 175, 55, 0.85) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 52% 14%, rgba(255, 255, 255, 0.7) 50%, transparent 50%),
+    radial-gradient(2px 2px at 74% 28%, rgba(244, 197, 66, 0.85) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 92% 18%, rgba(255, 255, 255, 0.65) 50%, transparent 50%),
+    radial-gradient(2px 2px at 15% 45%, rgba(230, 199, 106, 0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 38% 62%, rgba(255, 255, 255, 0.75) 50%, transparent 50%),
+    radial-gradient(2px 2px at 62% 52%, rgba(212, 175, 55, 0.75) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 84% 70%, rgba(255, 255, 255, 0.65) 50%, transparent 50%),
+    radial-gradient(2px 2px at 10% 82%, rgba(245, 158, 11, 0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 48% 88%, rgba(255, 255, 255, 0.75) 50%, transparent 50%),
+    radial-gradient(2px 2px at 90% 85%, rgba(212, 175, 55, 0.75) 50%, transparent 50%);
+}
+
+.cosmic-starlight-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 7% 5%, rgba(212, 175, 55, 0.8) 50%, transparent 50%),
+    radial-gradient(2px 2px at 30% 22%, rgba(244, 197, 66, 0.8) 50%, transparent 50%),
+    radial-gradient(1px 1px at 53% 39%, rgba(255, 255, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 76% 56%, rgba(230, 199, 106, 0.8) 50%, transparent 50%),
+    radial-gradient(2px 2px at 99% 73%, rgba(212, 175, 55, 0.8) 50%, transparent 50%),
+    radial-gradient(1px 1px at 22% 10%, rgba(255, 255, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 45% 27%, rgba(245, 158, 11, 0.8) 50%, transparent 50%),
+    radial-gradient(2px 2px at 68% 44%, rgba(212, 175, 55, 0.8) 50%, transparent 50%),
+    radial-gradient(1px 1px at 91% 61%, rgba(255, 255, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 14% 78%, rgba(244, 197, 66, 0.8) 50%, transparent 50%),
+    radial-gradient(2px 2px at 37% 95%, rgba(230, 199, 106, 0.8) 50%, transparent 50%),
+    radial-gradient(1px 1px at 60% 12%, rgba(255, 255, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 83% 29%, rgba(212, 175, 55, 0.8) 50%, transparent 50%);
+}
+
+/* ==========================================================================
+   HERO SECTION STYLES (DARK CHARCOAL WITH WARM ORANGE GLOW & TEACHER PORTRAIT)
+   ========================================================================== */
+.aleem-hero-wrapper {
+  position: relative;
+  background: #0B0C10;
+  background: radial-gradient(ellipse at 72% 42%, #181924 0%, #0D0E14 50%, #08090C 100%);
+  color: #FFFFFF;
+  overflow: hidden;
+  padding-top: 3.5rem;
+  padding-bottom: 5.5rem;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Subtle Dark Vignette & Depth */
+.hero-dark-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 45%, rgba(4, 5, 7, 0.75) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Atmospheric Ghost Watermark Typography (Reference-inspired) */
+.hero-watermark-text {
+  position: absolute;
+  top: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4rem;
+  font-size: clamp(4.5rem, 11.5vw, 10.5rem);
+  font-weight: 950;
+  letter-spacing: 0.09em;
+  color: rgba(255, 255, 255, 0.028);
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  line-height: 1;
+}
+
+/* Main Split Grid Container */
+.hero-split-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+/* ==========================================
+   LEFT COLUMN: HEADLINE, DESCRIPTION, CTAS
+   ========================================== */
+.hero-left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  z-index: 5;
+}
+
+/* Eyebrow Pill Badge */
+.hero-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.42rem 1.1rem;
+  background: rgba(249, 115, 22, 0.09);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-eyebrow-bar {
+  width: 4px;
+  height: 14px;
+  background: #F97316;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.8);
+}
+
+.hero-eyebrow-text {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #FB923C;
+  text-transform: uppercase;
+}
+
+/* Hero Main Title */
+.hero-main-title {
+  font-size: clamp(2.1rem, 4vw, 3.75rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.hero-break-desktop {
+  display: inline;
+}
+
+.hero-title-highlight {
+  color: #FFFFFF;
+}
+
+.hero-title-gradient {
+  background: linear-gradient(135deg, #F97316 0%, #FBBF24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  display: inline-block;
+  color: #F4C542;
+  font-weight: 300;
+  animation: cursorBlink 0.85s infinite;
+  margin-left: 4px;
+}
+
+/* Hero Subtitle */
+.hero-subtitle {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.68;
+  max-width: 540px;
+  margin-bottom: 2.2rem;
+}
+
+/* Hero Button Group */
+.hero-button-group {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--gold-btn-gradient);
+  color: #080808 !important;
+  font-weight: 850;
+  font-size: 1.02rem;
+  padding: 0.95rem 2.2rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: 1px solid #FCF6BA;
+  box-shadow: 0 10px 28px -4px rgba(212, 175, 55, 0.45);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-3px) scale(1.025);
+  box-shadow: 0 16px 36px -4px rgba(212, 175, 55, 0.65);
+  color: #080808 !important;
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #F8F5EC !important;
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 0.92rem 1.9rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  backdrop-filter: blur(12px);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: #F4C542;
+  transform: translateY(-2px);
+  color: #F4C542 !important;
+}
+
+/* Preserved button styles for other sections */
+.btn-fire {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--gold-btn-gradient);
+  color: #080808 !important;
+  font-weight: 850;
+  font-size: 1.05rem;
+  padding: 0.95rem 2.2rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: 1px solid #FCF6BA;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.btn-fire:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 16px 35px rgba(212, 175, 55, 0.65);
+  color: #080808 !important;
+}
+
+.btn-glass-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF !important;
+  font-weight: 750;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-glass-hero:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+  color: #FFFFFF !important;
+}
+
+/* Feature Highlights Pills below CTA */
+.hero-feature-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.hero-feature-tag svg {
+  color: #F97316;
+}
+
+/* ==========================================
+   RIGHT COLUMN: TEACHER PORTRAIT & GLOW
+   ========================================== */
+.hero-right-portrait-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 5;
+  min-height: 520px;
+}
+
+/* Subtle Warm Orange Glow directly behind the teacher portrait */
+.hero-portrait-glow-core {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.42) 0%, rgba(234, 88, 12, 0.22) 40%, rgba(194, 65, 12, 0.05) 65%, transparent 75%);
+  filter: blur(52px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-portrait-glow-outer {
+  position: absolute;
+  top: 36%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.16) 0%, rgba(234, 88, 12, 0.05) 45%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Teacher Cutout Frame with smooth floating animation */
+.hero-portrait-frame {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 470px;
+  animation: heroTeacherFloat 6s ease-in-out infinite;
+}
+
+/* Teacher Image Cutout - Crisp, Natural Scaling, Transparent */
+.hero-teacher-portrait-img {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  max-height: 580px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 35px rgba(249, 115, 22, 0.28));
+  -webkit-mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
+  transition: transform 0.4s ease;
+}
+
+/* Floating Glass Cards / Chips around teacher */
+.hero-floating-glass-chip {
+  position: absolute;
+  background: rgba(16, 18, 26, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 0.65rem 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(249, 115, 22, 0.12);
+  z-index: 6;
+  white-space: nowrap;
+}
+
+.chip-bottom-left {
+  bottom: 8%;
+  left: -8%;
+}
+
+.chip-top-right {
+  top: 10%;
+  right: -5%;
+}
+
+.chip-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.7rem;
+  background: rgba(249, 115, 22, 0.14);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chip-text-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.chip-title {
+  font-size: 0.88rem;
+  font-weight: 850;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.chip-subtitle {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-weight: 500;
+}
+
+/* Keyframe Animations */
+@keyframes heroTeacherEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroTeacherFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1080px) {
+  .hero-split-container {
+    gap: 2rem;
+    padding: 1rem;
+  }
+  .hero-teacher-portrait-img {
+    max-height: 500px;
+  }
+  .chip-bottom-left {
+    left: -2%;
+  }
+  .chip-top-right {
+    right: -2%;
+  }
+}
+
+@media (max-width: 900px) {
+  .aleem-hero-wrapper {
+    padding-top: 3rem;
+    padding-bottom: 4.5rem;
+    min-height: auto;
+  }
+  .hero-break-desktop {
+    display: none;
+  }
+  .hero-split-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 1rem 1.25rem 2rem;
+  }
+  .hero-left-content {
+    align-items: center;
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .hero-main-title {
+    font-size: clamp(1.75rem, 5vw, 2.45rem);
+    line-height: 1.18;
+    margin-bottom: 1.1rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.98rem;
+  }
+  .hero-button-group {
+    justify-content: center;
+  }
+  .hero-feature-tags {
+    justify-content: center;
+  }
+  .hero-watermark-text {
+    font-size: 7vw;
+    padding: 0 1.5rem;
+    top: 5%;
+  }
+  .hero-right-portrait-area {
+    min-height: auto;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .hero-teacher-portrait-img {
+    max-height: 440px;
+  }
+  .chip-bottom-left {
+    left: 2%;
+    bottom: 5%;
+  }
+  .chip-top-right {
+    right: 2%;
+    top: 5%;
+  }
+}
+
+@media (max-width: 600px) {
+  .aleem-hero-wrapper {
+    padding-top: 1.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .hero-split-container {
+    padding: 0.5rem 1rem 1.5rem;
+    gap: 1.8rem;
+    overflow: hidden;
+  }
+  .hero-watermark-text {
+    display: none;
+  }
+  .hero-eyebrow-badge {
+    padding: 0.35rem 0.85rem;
+    margin-bottom: 1rem;
+    max-width: 100%;
+  }
+  .hero-eyebrow-text {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .hero-main-title {
+    font-size: clamp(1.45rem, 6.2vw, 1.85rem);
+    line-height: 1.22;
+    margin-bottom: 0.9rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.58;
+    margin-bottom: 1.5rem;
+    padding: 0 0.25rem;
+  }
+  .hero-button-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.4rem;
+    font-size: 0.95rem;
+  }
+  .hero-feature-tags {
+    gap: 0.45rem;
+    justify-content: center;
+  }
+  .hero-feature-tag {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.65rem;
+  }
+  .hero-right-portrait-area {
+    min-height: auto;
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+  }
+  .hero-teacher-portrait-img {
+    max-height: 340px;
+    max-width: 290px;
+  }
+  .hero-portrait-glow-core {
+    width: 260px;
+    height: 260px;
+  }
+  .hero-portrait-glow-outer {
+    width: 320px;
+    height: 320px;
+  }
+  .hero-floating-glass-chip {
+    padding: 0.42rem 0.75rem;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+  }
+  .chip-bottom-left {
+    left: 0;
+    bottom: 2%;
+  }
+  .chip-top-right {
+    right: 0;
+    top: 2%;
+  }
+  .chip-icon-box {
+    width: 28px;
+    height: 28px;
+    border-radius: 0.5rem;
+  }
+  .chip-icon-box svg {
+    width: 14px;
+    height: 14px;
+  }
+  .chip-title {
+    font-size: 0.76rem;
+  }
+  .chip-subtitle {
+    font-size: 0.64rem;
+  }
+}
+
+/* Organic Wave Bottom Separator */
+.wave-bottom-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 5;
+}
+
+.wave-bottom-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+/* ==========================================================================
+   STATS RIBBON (COMPACT CONTINUOUS MARQUEE TICKER)
+   ========================================================================== */
+.aleem-stats-section.compact-ticker-ribbon {
+  position: relative;
+  background: linear-gradient(90deg, #07080A 0%, #12131A 30%, #1A1C29 50%, #12131A 70%, #07080A 100%);
+  padding: 0.72rem 0;
+  color: #F8F5EC;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.65);
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  overflow: hidden;
+  z-index: 10;
+  user-select: none;
+}
+
+.ticker-fade-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 3%, black 97%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 3%, black 97%, transparent 100%);
+}
+
+.ticker-inner-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+}
+
+/* Continuous movement from Left to Right */
+.ticker-move-left-to-right {
+  animation: continuousScrollLeftToRight 28s linear infinite;
+  will-change: transform;
+}
+
+.compact-ticker-ribbon:hover .ticker-move-left-to-right {
+  animation-play-state: paused;
+}
+
+@keyframes continuousScrollLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.ticker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.4rem;
+  font-size: clamp(0.92rem, 1.25vw, 1.05rem);
+  font-weight: 750;
+  color: #F8F5EC;
+}
+
+.ticker-icon {
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ticker-text {
+  letter-spacing: 0.02em;
+}
+
+.ticker-brand {
+  color: #F4C542;
+  font-weight: 900;
+  text-shadow: 0 0 14px rgba(244, 197, 66, 0.6);
+}
+
+.ticker-badge {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #F4C542;
+  padding: 0.12rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ticker-bullet {
+  color: #D4AF37;
+  font-size: 0.85rem;
+  margin: 0 1rem 0 1.25rem;
+  opacity: 0.95;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.7);
+}
+
+@media (max-width: 640px) {
+  .aleem-stats-section.compact-ticker-ribbon {
+    padding: 0.58rem 0;
+  }
+  .ticker-move-left-to-right {
+    animation-duration: 20s;
+  }
+  .ticker-pill {
+    font-size: 0.86rem;
+    gap: 0.45rem;
+  }
+  .ticker-bullet {
+    margin: 0 0.75rem 0 0.9rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   SECTION 1: WELCOME / INTRO STORYTELLING (INSPIRED BY ALEEM #intro)
+   ========================================================================== */
+.aleem-intro-section {
+  position: relative;
+  background: #0B0C11;
+  padding: 5.5rem 0;
+  overflow: hidden;
+}
+
+.aleem-blob-left {
+  position: absolute;
+  top: 5%;
+  left: -6%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.aleem-blob-right {
+  position: absolute;
+  bottom: 5%;
+  right: -6%;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 197, 66, 0.1) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.aleem-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .aleem-intro-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.aleem-intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--color-bright-gold);
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  margin-bottom: 1rem;
+}
+
+.aleem-intro-heading {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+}
+
+.aleem-intro-desc {
+  font-size: 1.05rem;
+  color: #A3A3A3;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Director Quote Card */
+.aleem-quote-card {
+  position: relative;
+  background: #12131A;
+  border-radius: 1.5rem;
+  padding: 1.8rem;
+  border-left: 5px solid var(--color-metallic-gold);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-right: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.aleem-quote-bg-svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.aleem-quote-text {
+  position: relative;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #F8F5EC;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.aleem-quote-author {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-bright-gold);
+}
+
+/* Intro Visual Card with layered stickers */
+.aleem-intro-art-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.aleem-intro-art-card {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.15);
+  border: 2px solid rgba(212, 175, 55, 0.35);
+  background: #12131A;
+  max-width: 440px;
+}
+
+.aleem-intro-art-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   SECTION 2: EXPLORE CLASSES & SUBJECTS (ROYAL OBSIDIAN & GOLD)
+   ========================================================================== */
+.aleem-classes-section {
+  position: relative;
+  background: #080808;
+  padding: 5.5rem 0;
+}
+
+.aleem-section-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.aleem-section-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.aleem-section-divider {
+  width: 70px;
+  height: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #D4AF37, #F4C542);
+  margin: 0 auto 1.25rem auto;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.aleem-section-subtitle {
+  font-size: 1.05rem;
+  color: #A3A3A3;
+  line-height: 1.6;
+}
+
+/* Royal Class Card */
+.aleem-class-card {
+  background: #12131A;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.aleem-class-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 25px rgba(212, 175, 55, 0.2);
+  border-color: var(--color-metallic-gold);
+}
+
+.aleem-card-banner {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  background: #1A1C26;
+}
+
+.aleem-card-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.aleem-class-card:hover .aleem-card-banner img {
+  transform: scale(1.08);
+}
+
+.aleem-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 850;
+  color: #080808;
+  background: var(--gold-btn-gradient);
+  border: 1px solid #FCF6BA;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+}
+
+.aleem-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.aleem-subject-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.9rem;
+}
+
+.subject-pill {
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 750;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pill-math {
+  background: rgba(212, 175, 55, 0.15);
+  color: #F4C542;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.pill-science {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.pill-english {
+  background: rgba(230, 199, 106, 0.15);
+  color: #E6C76A;
+  border: 1px solid rgba(230, 199, 106, 0.3);
+}
+
+.pill-navodaya {
+  background: rgba(212, 175, 55, 0.2);
+  color: #FCF6BA;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.pill-pink {
+  background: rgba(244, 197, 66, 0.15);
+  color: #F4C542;
+  border: 1px solid rgba(244, 197, 66, 0.3);
+}
+
+.aleem-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+
+.aleem-card-desc {
+  font-size: 0.9rem;
+  color: #9CA3AF;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+.aleem-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aleem-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+  color: #CBD5E1;
+  font-weight: 600;
+}
+
+.btn-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 850;
+  color: #080808 !important;
+  background: var(--gold-btn-gradient);
+  border: 1px solid #FCF6BA;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+}
+
+.btn-card-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.55);
+  color: #080808 !important;
+}
+
+/* ==========================================================================
+   SECTION 3: TEACHING APPROACH & JOURNEY (INSPIRED BY ALEEM #journey)
+   ========================================================================== */
+.aleem-journey-section {
+  position: relative;
+  background: linear-gradient(180deg, #080808 0%, #0E1017 100%);
+  padding: 5.5rem 0;
+}
+
+.aleem-journey-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .aleem-journey-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .aleem-journey-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.aleem-journey-card {
+  position: relative;
+  background: #12131A;
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.aleem-journey-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(212, 175, 55, 0.2);
+  border-color: var(--color-metallic-gold);
+}
+
+.aleem-step-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--color-bright-gold);
+}
+
+.aleem-journey-card:hover .aleem-step-icon-wrap {
+  transform: scale(1.15) rotate(6deg);
+}
+
+.aleem-step-num {
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  color: rgba(212, 175, 55, 0.35);
+}
+
+.aleem-step-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  color: #FFFFFF;
+}
+
+.aleem-step-desc {
+  font-size: 0.88rem;
+  color: #A3A3A3;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   SECTION 4: COSMIC DARK RESULTS (ROYAL OBSIDIAN & METALLIC GOLD)
+   ========================================================================== */
+.aleem-cosmic-section {
+  position: relative;
+  background: var(--grad-cosmic);
+  color: #FFFFFF;
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.aleem-cosmic-glow1 {
+  position: absolute;
+  top: -15%;
+  right: -5%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.aleem-cosmic-glow2 {
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 197, 66, 0.2) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.aleem-cosmic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 850;
+  color: #080808;
+  background: var(--gold-btn-gradient);
+  border: 1px solid #FCF6BA;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.aleem-cosmic-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 40px rgba(212, 175, 55, 0.35);
+}
+
+.aleem-cosmic-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 720px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.65;
+}
+
+/* Category Filter Pills on Cosmic */
+.aleem-filter-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.btn-filter-pill {
+  padding: 0.45rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 750;
+  color: #E5E7EB;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-filter-pill:hover,
+.btn-filter-pill.active {
+  background: var(--gold-btn-gradient);
+  color: #080808;
+  font-weight: 850;
+  border-color: #FCF6BA;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.45);
+}
+
+/* Topper Card inside Cosmic */
+.aleem-topper-card {
+  position: relative;
+  background: rgba(18, 19, 26, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s ease;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.aleem-topper-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-bright-gold);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+.aleem-topper-rank-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--gold-btn-gradient);
+  color: #080808;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #FCF6BA;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+}
+
+.aleem-topper-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-metallic-gold);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+
+.aleem-topper-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.aleem-topper-class {
+  font-size: 0.85rem;
+  color: var(--color-champagne-gold);
+  margin-bottom: 0.85rem;
+}
+
+.aleem-topper-score-box {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.score-pct {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--color-bright-gold);
+}
+
+.score-fraction {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ==========================================================================
+   SECTION 5: FACULTY SHOWCASE (ROYAL OBSIDIAN & GOLD)
+   ========================================================================== */
+.aleem-faculty-section {
+  position: relative;
+  background: #080808;
+  padding: 5.5rem 0;
+}
+
+.aleem-faculty-card {
+  background: #12131A;
+  border-radius: 1.5rem;
+  padding: 1.8rem;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aleem-faculty-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 25px rgba(212, 175, 55, 0.2);
+  border-color: var(--color-metallic-gold);
+}
+
+.aleem-faculty-avatar-box {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin-bottom: 1.25rem;
+}
+
+.aleem-faculty-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3.5px solid var(--color-metallic-gold);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.aleem-faculty-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.aleem-faculty-subject {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-bright-gold);
+  margin-bottom: 0.75rem;
+}
+
+.aleem-faculty-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #A3A3A3;
+  margin-bottom: 0.4rem;
+}
+
+/* ==========================================================================
+   SECTION 6: OFFICIAL APP & ENQUIRY (ROYAL BLACK & GOLD)
+   ========================================================================== */
+.aleem-cta-section {
+  position: relative;
+  background: linear-gradient(135deg, #090A0E 0%, #12131A 50%, #181924 100%);
+  color: #FFFFFF;
+  padding: 5rem 0 3.5rem 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.aleem-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .aleem-cta-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.aleem-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.15);
+  color: #F4C542;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 0.35rem 1.1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  backdrop-filter: blur(8px);
+  margin-bottom: 1.25rem;
+}
+
+.aleem-cta-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+}
+
+.aleem-cta-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.aleem-cta-store-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.btn-store-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  backdrop-filter: blur(8px);
+  color: #F8F5EC !important;
+  font-weight: 800;
+  font-size: 0.92rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-store-pill:hover {
+  background: var(--gold-btn-gradient);
+  color: #080808 !important;
+  border-color: #FCF6BA;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-store-pill.fire-accent {
+  background: var(--gold-btn-gradient);
+  color: #080808 !important;
+  border: 1.5px solid #FCF6BA;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-store-pill.fire-accent:hover {
+  color: #080808 !important;
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+}
+
+.aleem-cta-art-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.aleem-cta-art-img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 2rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.15);
+  border: 2px solid rgba(212, 175, 55, 0.35);
+}
+
+/* ==========================================================================
+   NAVBAR ENHANCEMENTS (ROYAL GLASSMORPHISM)
+   ========================================================================== */
+.aleem-navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(8, 8, 8, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.aleem-topbar {
+  background: linear-gradient(90deg, #050506 0%, #151515 50%, #050506 100%);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  color: #E6C76A;
+  padding: 0.4rem 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.aleem-nav-link {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 0.9rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.aleem-nav-link:hover {
+  color: var(--color-bright-gold);
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.aleem-nav-link.active {
+  color: #080808 !important;
+  background: var(--gold-btn-gradient);
+  font-weight: 850;
+  border: 1px solid #FCF6BA;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+}
+
+.btn-nav-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 850;
+  color: #080808 !important;
+  background: var(--gold-btn-gradient);
+  border: 1px solid #FCF6BA;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-nav-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(212, 175, 55, 0.55);
+  color: #080808 !important;
+}
+
+/* ==========================================================================
+   FOOTER ENHANCEMENTS (ROYAL CHARCOAL GRADIENT)
+   ========================================================================== */
+.aleem-footer {
+  background: linear-gradient(180deg, #090A0E 0%, #050506 100%);
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  color: #FFFFFF;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.aleem-footer-title {
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.aleem-footer-link {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.aleem-footer-link:hover {
+  color: var(--color-bright-gold);
+}
+
+/* ==========================================================================
+   PINNED STORYTELLING SECTION (ROYAL OBSIDIAN INTERACTIVE SLIDES)
+   ========================================================================== */
+.pinned-story-section {
+  position: relative;
+  background: #0B0C11;
+  padding: 5.5rem 0;
+  overflow: hidden;
+}
+
+.pinned-story-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 960px) {
+  .pinned-story-layout {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+  }
+}
+
+.story-steps-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.story-step-card {
+  background: #12131A;
+  border-radius: 1.75rem;
+  padding: 2rem;
+  border: 1.5px solid rgba(212, 175, 55, 0.18);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.story-step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-metallic-gold);
+}
+
+.story-step-card.active {
+  transform: translateY(-4px) scale(1.01);
+  border-color: var(--color-metallic-gold);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.25);
+}
+
+.story-pinned-visual-wrapper {
+  position: relative;
+}
+
+@media (min-width: 960px) {
+  .story-pinned-visual-wrapper {
+    position: sticky;
+    top: 110px;
+    z-index: 20;
+  }
+}
+
+.story-pinned-card {
+  position: relative;
+  background: #12131A;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.15);
+  overflow: hidden;
+}
+
+.story-stage-glow {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  filter: blur(50px);
+  pointer-events: none;
+  transition: background 0.6s ease;
+}
+
+.story-stage-header {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.story-step-dots {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.story-step-dot {
+  width: 22px;
+  height: 6px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.story-step-dot.active {
+  width: 42px;
+}
+
+.story-image-screen {
+  position: relative;
+  z-index: 5;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  height: 340px;
+  background: #1A1C26;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.25rem;
+}
+
+.story-screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease, transform 0.6s ease;
+}
+
+.story-pinned-card:hover .story-screen-img {
+  transform: scale(1.04);
+}
+
+.story-screen-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(10, 10, 14, 0.92);
+  backdrop-filter: blur(8px);
+  color: #F4C542;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.story-floating-sticker {
+  position: absolute;
+  z-index: 15;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.22));
+}
+
+.story-floating-sticker.top-left {
+  top: -15px;
+  left: -15px;
+}
+
+.story-floating-sticker.bottom-right {
+  bottom: 55px;
+  right: -15px;
+}
+
+.story-stage-footer {
+  position: relative;
+  z-index: 5;
+  background: #0E1017;
+  border-radius: 1.25rem;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: #F8F5EC;
+}
+
+/* ==========================================================================
+   SCROLL-DRIVEN REVEAL & STAGGER ANIMATIONS
+   ========================================================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.reveal-left {
+  transform: translateX(-45px);
+}
+
+.scroll-reveal.reveal-right {
+  transform: translateX(45px);
+}
+
+.scroll-reveal.reveal-scale {
+  transform: scale(0.92);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* Staggered Delays for sequential entry */
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.16s; }
+.stagger-3 { transition-delay: 0.24s; }
+.stagger-4 { transition-delay: 0.32s; }
+.stagger-5 { transition-delay: 0.40s; }
+.stagger-6 { transition-delay: 0.48s; }
+
+/* Parallax floating layer */
+.parallax-element {
+  transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
